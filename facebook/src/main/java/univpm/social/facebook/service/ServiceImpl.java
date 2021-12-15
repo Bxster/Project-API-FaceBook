@@ -6,7 +6,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
@@ -18,25 +20,76 @@ public class ServiceImpl implements Service {
  	 private String userToken = "";
  	 private String userId = "";
 	 
- 	// id,name,birthday,email,friends,albums
-     public JSONObject getGeneralInformation() 
+ 	 
+ 	 
+ 	 
+ 	 
+ 	// id,name,birthday,email,friends,albums + parametro a scelta 
+     public JSONObject getGeneralInformation(String param) 
      {
-    	 String URL ="https://graph.facebook.com/v12.0/"+userId+"?fields=id%2Cname%2Cbirthday%2Cemail%2Cfriends%2Calbums&access_token="+userToken;
+    	 String URL ="https://graph.facebook.com/v12.0/"+userId+"?fields=id%2Cname%2Cbirthday%2Cemail%2Cfriends%2Calbums"+"%2C"+ param +"&access_token="+userToken;
     	 
     	 return DecEnc.readJsonObject(URL);
      }
      
-     public JSONObject getAlbumInformation() 
+     
+     
+     
+     
+     
+     // Stampa le foto di ogni album 
+     public JSONArray getAlbumInformation() 
      {
+    	 ArrayList<String> albumsId = DecEnc.getAlbumId();
     	 
+ //     Ora eseguo un ciclo di for e concateno le stringhe , per avere
+//      le foto di ciascun album
+    	 
+    	 JSONObject jsonobject = null;
+    	 JSONArray toGive = new JSONArray();
+    	 for(int i=0 ; i<albumsId.size() ; i++) 
+    	 {
+    		String URL = "https://graph.facebook.com/v12.0/"+ albumsId.get(i) +"?fields=photos&access_token="+ userToken;
+    		jsonobject =  DecEnc.readJsonObject(URL);
+    		toGive.add(i, jsonobject);
+    	 }
+		return toGive;
+    	
+     }
+
+     
+//   Stampo le foto di un album con la possibilita di visualizzare ove presenti i tags del album
+     public JSONArray getMultimediaElementInformation(String photoId) 
+     {
+    	 ArrayList<String> photosId = DecEnc.getPhotosId(photoId);
+    	 
+    	 JSONObject jobj = null;
+    	 JSONArray toGive = new JSONArray();
+    	 for(int i=0 ; i<photosId.size() ; i++) 
+    	 {
+    		String URL = "https://graph.facebook.com/v12.0/"+ photosId.get(i) +"?fields=photos&access_token="+ userToken;
+    		jobj = (JSONObject) DecEnc.readJsonObject(URL); 
+    		toGive.add(i, jobj);
+    	 }
+    	 
+    	 return toGive;
      }
      
-     public JSONObject getPhotoInformation() 
+     
+     
+     
+     public String getUserId() 
      {
-    	 
+    	 return userId;
      }
      
+     
+     
+     public String getUserToken() 
+     {
+    	 return userToken;
+     }
 
      }
 
-}
+

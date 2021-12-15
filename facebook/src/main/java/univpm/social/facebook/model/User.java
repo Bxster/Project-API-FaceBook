@@ -14,7 +14,7 @@ public class User extends GeneralObject implements Model {
 	private String numberFriends;
 	private ArrayList<Albums> albums;
 	
-	
+	// id,name,birthday,email,friends,albums
 	public User(String id, String name, String birthday, String email, String numberFriends, ArrayList<Albums>albums ) 
 	     {
 		     super(id,name,birthday);
