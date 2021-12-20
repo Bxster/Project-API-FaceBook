@@ -2,7 +2,9 @@ package univpm.social.errorscheck;
 
 import java.time.LocalDate;
 
+
 import univpm.social.exceptions.BadParameterException;
+import univpm.social.time.TimeConversion;
 
 public class ErrorsCheck {
 	
@@ -49,6 +51,30 @@ public class ErrorsCheck {
 			
 			  throw new BadParameterException("MESE NON VALIDO ! " + commonMessage);
                                              
+	}
+	
+	
+	
+	
+	private static boolean correctDay(String day , String year , String month) throws BadParameterException 
+	{
+		
+		String time = month + "-" + day + "-" + year;
+        
+		if(Integer.parseInt(day)==0) 
+			 return true;
+		/* In questo caso l'anno non puo essere uguale a zero , ma questo controllo
+		   viene interecettato dalla chiamata nel if della chiamata al metodo filter
+		   della classe FilterImpl, ora però se passo una data devo verificare che il 
+		   mese sia corretto altrimenti devo lanciare un eccezione specifica per il mese		   
+	    */
+		else if(Integer.parseInt(month)==0) 
+			  throw new BadParameterException("MESE NON VALIDO ! " + commonMessage);
+		else if(TimeConversion.isLegalDate(time)) 
+			 return true;
+		 	
+	   throw new BadParameterException("GIORNO NON VALIDO ! " +  commonMessage);
+	  		                          
 	}
 
 }
