@@ -72,6 +72,25 @@ class testBadParameterException {
 		Assertions.assertEquals("GIORNO NON VALIDO ! VERIFICA LA PRESENZA DI ALTRI ERRORI NEL CODICE ", thrownDay.getMessage());
 		
 	}
+	
+	
+	
+	/*
+         Caso limite : anno sbagliato , mese e giorno sbagliati
+   */
+
+
+
+    @Test
+    void testNoZeroAllWrongs() {
+	
+	BadParameterException thrown = Assertions.assertThrows(BadParameterException.class, () -> {
+		filterImpl.filter("2059", "19", "500");
+	});
+	
+	Assertions.assertEquals("ANNO NON VALIDO ! VERIFICA LA PRESENZA DI ALTRI ERRORI NEL CODICE ", thrown.getMessage());
+	
+}
 		
 		
 	}
