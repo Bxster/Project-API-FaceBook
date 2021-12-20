@@ -12,7 +12,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import com.example.demo.exceptions.FileException;
+import univpm.social.exceptions.FileException;
+
+
 
 public class FileExtern {
 	
