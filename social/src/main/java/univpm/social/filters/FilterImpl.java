@@ -3,19 +3,21 @@ package univpm.social.filters;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
 
 import org.json.simple.JSONObject;
 
-import com.example.demo.model.Albums;
-import com.example.demo.model.User;
+
 
 import univpm.social.exceptions.BadParameterException;
 import univpm.social.exceptions.FileException;
 import univpm.social.exceptions.NoAlbumsException;
 
 import univpm.social.model.*;
+import univpm.social.time.TimeConversion;
 import univpm.social.utility.DecEnc;
 
 public class FilterImpl implements Filter {
@@ -121,6 +123,48 @@ public class FilterImpl implements Filter {
 	       return  this.getJsonObject(check, user, albums, 
                          "NESSUN ALBUM PRESENTE NEL ANNO E MESE RICHIESTO");			
 		}
+	
+	
+	public JSONObject filterForDay(String year , String month , String day) throws ParseException, IOException, FileException, NoAlbumsException 
+	{
+		
+		// Do per scontato che l'utente mi ha fornito corretamente anno , mese e giorno
+		// Si potrebbe pensare di implementare classi che gestiscanno questa tipologia di 
+		// errori
+		
+		User user = DecEnc.decodeToUser();
+		User toGet;
+		
+		ArrayList<Albums> albums = new ArrayList();
+		Albums singleAlbum;
+		boolean check = false;
+	  
+		Date date = TimeConversion.fromStringToStandardDate(month+"-"+day+"-"+year);
+		LocalDate localDateToCompare = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+		
+		if(user.getAlbums().isEmpty()) throw new NoAlbumsException("NON E' PRESENTE ALCUN ALBUM");
+		for(Albums album : user.getAlbums()) 
+		   {
+			
+			 LocalDate localDate = album.toDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+
+			if(localDate.getYear()==localDateToCompare.getYear() &&
+			   localDate.getMonthValue()==localDateToCompare.getMonthValue()&&
+			   localDate.getDayOfMonth()==localDateToCompare.getDayOfMonth()) 
+			    {
+				 
+				   singleAlbum = new Albums(album.getName(),album.getCreatedTime(),album.getAlbumId(),null);
+				   check  = true;
+				   albums.add(singleAlbum);
+			    }
+		   }
+		
+		
+       return this.getJsonObject(check, user, albums, 
+         "NESSUN ALBUM PRESENTE NEL ANNO E MESE E GIORNO RICHIESTO");
+		     		
+	}
 	
 	
 	 
