@@ -6,10 +6,12 @@ import java.util.ArrayList;
 import org.json.simple.JSONObject;
 
 
+
 import univpm.social.exceptions.FileException;
 import univpm.social.model.Albums;
 import univpm.social.model.User;
 import univpm.social.utility.DecEnc;
+import univpm.social.utility.FileExtern;
 
 
 
@@ -48,6 +50,50 @@ public class FilterName extends FilterImpl{
 	   
 	   return this.getJsonObject(check, user, albums, "NESSUN ALBUM TROVATO CON IL NOME " + name);
 	}
+	
+	
+	
+	
+	
+	/*
+	     Questo metodo ritorna un Jsonobject che corrispende al o agli albums
+	     trovati che corrispondono con i nomi degli albums presenti nel file 
+	     VOLGAR_NAME.txt il quale viene passato come parametro alla funzione.
+	     Se nessuno degli albums metcha con i nomi presenti nel file .txt , verrà 
+	     ritornato un JsonObject contente un messaggio di anomalia. Il tutto 
+	     viene fatto richiamando il metodo getJsonObject(...) della super-classe
+	     FilterImpl
+	
+	*/
+	
+	public JSONObject checkBadName(String fileName) throws IOException, FileException 
+	{
+		ArrayList<String> volgarNameList = FileExtern.readFromFile(fileName, false);
+		User user = DecEnc.decodeToUser();
+          
+	    ArrayList<Albums> albums = user.getAlbums();
+	    
+	    boolean check = false;
+	    ArrayList<Albums> albumsFiltered = new ArrayList();
+		for(Albums a : albums) 
+		{
+           for(String s : volgarNameList) 
+              {
+        	   
+        	     if(a.getName().equals(s)) 
+        	       {
+        	    	  albumsFiltered.add(a);
+        	    	  check = true;
+        	       }
+              }
+		}
+		
+		
+		return this.getJsonObject(check, user, albumsFiltered, 
+			   "NESSUN ALBUM PRESENTA NOMI VOLGARI E/O MOLESTI !");
+		
+	}
+
     
 
 }
