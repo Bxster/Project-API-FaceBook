@@ -10,7 +10,7 @@ import java.util.Date;
 
 import org.json.simple.JSONObject;
 
-
+import com.example.demo.errorscheck.ErrorsCheck;
 
 import univpm.social.exceptions.BadParameterException;
 import univpm.social.exceptions.FileException;
@@ -165,6 +165,31 @@ public class FilterImpl implements Filter {
          "NESSUN ALBUM PRESENTE NEL ANNO E MESE E GIORNO RICHIESTO");
 		     		
 	}
+	
+	
+	public JSONObject filter(String year , String month , String day) throws ParseException, BadParameterException, IOException, FileException, NoAlbumsException 
+	{
+		ErrorsCheck errorsCheck = new ErrorsCheck();
+	    // Controllo se tutti i paremtri sono ok
+		if(errorsCheck.errorsCheck(day, month, year))   
+	  
+			// !year.equals("0")
+		// filtro per anno , anno-mese , anno-mese-giorno
+		if(!month.equals("0") && !day.equals("0"))
+			return this.filterForDay(year, month, day);
+		else if(!month.equals("0") && day.equals("0"))
+			 return this.filterForMonth(year, month);
+		else if(month.equals("0") && day.equals("0"))
+		    return this.filterForYears(year);
+		
+		// TODO LUCA : NON CREDO CHE ENTRERA' PERO' DOVEVO METTERE PER FORZA 
+		//             QUALCOSA , MODIFICARE !
+    	throw new BadParameterException("GENERAL ERROR ! QUALCOSA E' ANDATO STORTO CON I FILTRI");
+		 
+				
+	}
+	
+	
 	
 	
 	 
