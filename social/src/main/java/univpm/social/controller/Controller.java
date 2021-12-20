@@ -72,5 +72,19 @@ public class Controller {
 		  return new ResponseEntity<>(statistic.getStatistics(year ,month , day),HttpStatus.OK);
 	}
 	
+	
+	
+	@GetMapping("/filter/name")
+	public ResponseEntity<Object> filterName(@RequestParam(value="name", required=false) String name) throws IOException, FileException, BadParameterException{
+		//throw new BadParameterException("ATTENZIONE , DEVI PASSARMI UN NOME DA FILTRARE");
+		
+		if(name == null)
+			return ResponseEntity.status(400).body(msg400);
+		
+		if(name.isEmpty())   return ResponseEntity.status(409).body(msg);
+		
+		  return new ResponseEntity<>(statistic.getNameStatistic(name), HttpStatus.OK);
+	}
+	
 
 }
