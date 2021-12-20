@@ -22,5 +22,25 @@ public class TimeConversion {
 		
 		    return date;
 	}
+	
+	
+	
+	public static Date fromStringToStandardDate(String time) throws ParseException 
+	{
+		//String DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss+SSSS";
+		 String DATE_FORMAT = "MM-dd-yyyy";
+	     SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
+
+		    Date date = null;
+		    try {
+		        date = sdf.parse(time);
+		    } catch(ParseException e) 
+		       {
+		    	  e.printStackTrace();
+		       }
+
+		   return date; 
+	}   
+	
 
 }
