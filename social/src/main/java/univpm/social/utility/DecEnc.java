@@ -10,6 +10,7 @@ import univpm.social.exceptions.FileException;
 import univpm.social.model.Albums;
 import univpm.social.model.Photo;
 import univpm.social.model.User;
+import univpm.social.service.ServiceImpl;
 
 
 public class DecEnc {
@@ -58,9 +59,6 @@ public static JSONObject encodeToJson(User user)
 	
    }
 
-
-//TODO LUCA : RICHIAMARE ECCEZIONE CHE CONSENTE DI CAPIRE SE UN PROFILO
-//NON HA ALBUM E CHE NE STAMPI UN ECCEZIONE
 
    public static User decodeToUser() throws IOException, FileException 
      {

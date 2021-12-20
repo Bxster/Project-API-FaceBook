@@ -2,12 +2,14 @@ package univpm.social.filters;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
 import org.json.simple.JSONObject;
 
-
+import com.example.demo.model.Albums;
+import com.example.demo.model.User;
 
 import univpm.social.exceptions.BadParameterException;
 import univpm.social.exceptions.FileException;
@@ -18,6 +20,35 @@ import univpm.social.utility.DecEnc;
 
 public class FilterImpl implements Filter {
 
+	
+	// TODO LUCA : MIGLIORARE QUESTO ASPETTO 
+	protected JSONObject getJsonObject(boolean check , User user, ArrayList<Albums> albums, String error) 
+	{
+		User toGet;
+		
+		if(check) 
+		{
+			toGet = new User(user.getName(),user.getId(),user.getEmail(),user.getCreatedTime(),albums);
+		    
+//        Ora ricodifico l'oggetto user in JSONobject e lo ritorno al controllore
+		   
+			JSONObject ret = DecEnc.encodeToJson(toGet);
+
+			return ret;
+		}
+	  	
+		
+	   else {
+		
+		     JSONObject jsonobject = new JSONObject();
+		     jsonobject.put("ERROR", error);
+		
+		     return jsonobject;
+		     
+	        }
+	}
+	
+	
 	
 	
 	public JSONObject filterForYears(String year) throws IOException, FileException, NoAlbumsException 
@@ -48,5 +79,50 @@ public class FilterImpl implements Filter {
 			   albums.add(singleAlbum);
 			  }
 		}
-
+				
+     return  this.getJsonObject(check, user, albums, 
+                        "NESSUN ALBUM PRESENTE NEL ANNO RICHIESTO");			
+	}
+	
+	
+	
+	// yyyy-mm
+	public JSONObject filterForMonth(String year , String month) throws ParseException, IOException, FileException, NoAlbumsException 
+	  {
+	//  Mi prendo il mio JSONObject
+		User user = DecEnc.decodeToUser();
+		
+	
+		
+    //  Mi serviranno per il rilascio del JSONObject
+		ArrayList<Albums>albums = new ArrayList();
+		Albums singleAlbum;
+		boolean check = false;
+		User toGet;
+		        
+	
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM");
+		Date date = dateFormat.parse(year + "-" + month );
+        System.out.println(date);
+		
+        if(user.getAlbums().isEmpty()) throw new NoAlbumsException("NON E' PRESENTE ALCUN ALBUM");
+		for(Albums album : user.getAlbums()) 
+		{
+			
+			if( date.getYear()==album.toDate().getYear() &&
+			    date.getMonth()==album.toDate().getMonth()) 
+			  {
+				   singleAlbum = new Albums(album.getName(),album.getCreatedTime(),album.getAlbumId(),null);
+				   check  = true;
+				   albums.add(singleAlbum);
+			   }
+		 }
+						
+	       return  this.getJsonObject(check, user, albums, 
+                         "NESSUN ALBUM PRESENTE NEL ANNO E MESE RICHIESTO");			
+		}
+	
+	
+	 
+	
 }
