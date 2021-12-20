@@ -8,7 +8,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
-
 import univpm.social.filters.FilterImpl;
 
 
@@ -90,7 +89,23 @@ class testBadParameterException {
 	
 	Assertions.assertEquals("ANNO NON VALIDO ! VERIFICA LA PRESENZA DI ALTRI ERRORI NEL CODICE ", thrown.getMessage());
 	
-}
+    }
+    
+    
+    /*
+       Ulteriore caso limite anno = 0 , mese e giorno non passati
+     */
+    
+    
+	@Test
+	void allWrongsZero() 
+	{
+		BadParameterException thrown = Assertions.assertThrows(BadParameterException.class, () -> {
+			filterImpl.filter("0","0","0");
+		});
+		
+		Assertions.assertEquals("NON POSSO FILTRARE SE TUTTI I PARAMETRI SONO NULLI", thrown.getMessage());
+	}
 		
 		
 	}
