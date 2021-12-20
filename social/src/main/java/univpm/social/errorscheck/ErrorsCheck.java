@@ -37,5 +37,18 @@ public class ErrorsCheck {
 		                              
                                
 	}
+	
+	
+	
+	private static boolean correctMonth(String number) throws BadParameterException 
+	{		
+			if(Integer.parseInt(number)<=12&&Integer.parseInt(number)>=1) 
+			   return true;
+			else if(Integer.parseInt(number)==0) 
+				return true;
+			
+			  throw new BadParameterException("MESE NON VALIDO ! " + commonMessage);
+                                             
+	}
 
 }
