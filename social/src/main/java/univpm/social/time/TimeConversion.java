@@ -26,7 +26,7 @@ public class TimeConversion {
 	
 	
 	
-	public static Date fromStringToStandardDate(String time) throws ParseException 
+	public static Date fromStringToStandardDate(String time)  
 	{
 		//String DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss+SSSS";
 		 String DATE_FORMAT = "MM-dd-yyyy";
