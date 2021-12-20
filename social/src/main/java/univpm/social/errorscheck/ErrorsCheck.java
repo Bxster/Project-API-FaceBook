@@ -86,5 +86,22 @@ public class ErrorsCheck {
 		 
 		 else return true;
 	  }
+	
+	
+	
+	public  boolean errorsCheck(String day , String month , String year) throws BadParameterException 
+	  {
+		
+		if(ErrorsCheck.allZero(day, year, month))
+		
+		if(ErrorsCheck.isNumber(day,month,year) &&
+		   ErrorsCheck.allZero(day, year, month) &&
+		   ErrorsCheck.correctYear(year) &&
+		   ErrorsCheck.correctMonth(month)  && 
+		   ErrorsCheck.correctDay(day,year,month))
+		   return true;  
+		
+		return true;
+	  }
 
 }
