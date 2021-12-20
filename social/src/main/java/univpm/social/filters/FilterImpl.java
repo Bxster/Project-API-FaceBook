@@ -7,15 +7,14 @@ import java.util.Date;
 
 import org.json.simple.JSONObject;
 
-import com.example.demo.model.Albums;
-import com.example.demo.model.User;
-import com.example.demo.utility.DecEnc;
+
 
 import univpm.social.exceptions.BadParameterException;
 import univpm.social.exceptions.FileException;
 import univpm.social.exceptions.NoAlbumsException;
 
 import univpm.social.model.*;
+import univpm.social.utility.DecEnc;
 
 public class FilterImpl implements Filter {
 
