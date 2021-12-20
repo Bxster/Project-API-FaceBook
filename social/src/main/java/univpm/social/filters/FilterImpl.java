@@ -10,8 +10,7 @@ import java.util.Date;
 
 import org.json.simple.JSONObject;
 
-import com.example.demo.errorscheck.ErrorsCheck;
-
+import univpm.social.errorscheck.ErrorsCheck;
 import univpm.social.exceptions.BadParameterException;
 import univpm.social.exceptions.FileException;
 import univpm.social.exceptions.NoAlbumsException;
