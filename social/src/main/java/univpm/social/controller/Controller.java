@@ -31,6 +31,21 @@ public class Controller {
 	private String msg = "ERRORE ! VALORE PARAMETRO/I MANCANTE/I";
     private String msg400 = "ERRORE ! VALUE IMMESSO NON CORRETTO O MANCANTE";
    
+    
+    /*
+        Questa rotta consente di di avere generiche info quali: nome,id,email con
+        la possibilità di scegliere un parametro extra da visualizzare(es. birthday)
+        
+        1) Se il parametro è sbagliato o manca, verrà lanciato il messaggio di errore 
+           400 , vedere msg400
+        2) Se il parametro è presente ed è corretto, ma manca la key, quindi la value
+           del parametro, allora il programma lancerà il messaggio di errore msg error
+           409
+        3) Se se il parametro è corretto ed è presente un valore che è diverso però
+           da quelli presenti nella lista, verra lanciata un eccezione del tipo
+           BadParameterException -> ATTENZIONE VALUE IMMESSO NON VALIDO !
+        
+     */
         
 	@GetMapping(value = "/userInfo")
 	public ResponseEntity<Object> getInfo(@RequestParam(value="param" , required=false)String param) throws IOException, FileException, BadParameterException{
