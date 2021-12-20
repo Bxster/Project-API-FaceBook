@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+
 import univpm.social.filters.FilterImpl;
 
 
@@ -35,7 +36,24 @@ class testBadParameterException {
 		});
 		
 		Assertions.assertEquals("ANNO NON VALIDO ! VERIFICA LA PRESENZA DI ALTRI ERRORI NEL CODICE ", thrownYear.getMessage());
+	}	
+   
+   
+	/*
+	    Test sul mese: anno e giorno OK , mese non corretto .
+	 */
+   
+	
+	@Test
+	void testMonth() {
+		
+		BadParameterException thrownMonth = Assertions.assertThrows(BadParameterException.class, () -> {
+			filterImpl.filter("2010", "20", "12");
+		});
+		
+		Assertions.assertEquals("MESE NON VALIDO ! VERIFICA LA PRESENZA DI ALTRI ERRORI NEL CODICE ", thrownMonth.getMessage());
+	}
 		
 		
 	}
-}
+
