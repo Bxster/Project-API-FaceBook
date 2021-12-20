@@ -9,8 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-
+import org.springframework.web.bind.annotation.RestController;
 
 import univpm.social.exceptions.BadParameterException;
 import univpm.social.exceptions.FileException;
@@ -27,7 +26,7 @@ import univpm.social.utility.FileExtern;
  */
 
 
-
+@RestController
 public class Controller {
 	
 
