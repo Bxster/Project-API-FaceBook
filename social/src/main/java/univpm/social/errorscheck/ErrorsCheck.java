@@ -76,5 +76,15 @@ public class ErrorsCheck {
 	   throw new BadParameterException("GIORNO NON VALIDO ! " +  commonMessage);
 	  		                          
 	}
+	
+	
+	
+	private static boolean allZero(String day , String year , String month) throws BadParameterException 
+	  {
+		 if(day.equals("0") && year.equals("0") && month.equals("0"))
+			throw new BadParameterException("NON POSSO FILTRARE SE TUTTI I PARAMETRI SONO NULLI");
+		 
+		 else return true;
+	  }
 
 }
