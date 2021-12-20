@@ -1,15 +1,20 @@
 package univpm.social.controller;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
+
 import univpm.social.exceptions.BadParameterException;
 import univpm.social.exceptions.FileException;
+import univpm.social.exceptions.NoAlbumsException;
 import univpm.social.filters.FilterImpl;
 import univpm.social.service.ServiceImpl;
 import univpm.social.statistics.Statistic;
@@ -47,6 +52,24 @@ public class Controller {
 		   }
 		
 		throw new BadParameterException("ATTENZIONE VALUE IMMESSO NON VALIDO !");
+	}
+	
+	
+	
+
+	
+	@GetMapping("/filter")
+	public ResponseEntity<Object> filter(@RequestParam(value="year",required=false) String year,
+			@RequestParam(value="month" , defaultValue="0" , required=false) String month , @RequestParam(value="day", defaultValue="0", required=false) String day) throws ParseException, BadParameterException, IOException, FileException, MissingServletRequestParameterException, NoAlbumsException{
+          
+
+		  if(year==null || day==null || month==null)
+			  return ResponseEntity.status(400).body(msg400 + " : Prestare attenzione");
+
+		  if((year.isEmpty())) 
+			return ResponseEntity.status(409).body(msg);
+		
+		  return new ResponseEntity<>(statistic.getStatistics(year ,month , day),HttpStatus.OK);
 	}
 	
 
