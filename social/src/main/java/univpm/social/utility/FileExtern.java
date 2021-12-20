@@ -59,8 +59,11 @@ public class FileExtern {
           if(check && !toGive.isEmpty()) 
             {
         	  
-        	  if(toGive.get(1).isBlank() || toGive.get(2).isBlank())
-        		  throw new FileException("ATTENZIONE ! DEVI INSERIRE IL TOKEN NELLA SECONDA E TERZA RIGA");
+        	  if(!toGive.get(1).isBlank() || toGive.size()==2 || toGive.get(1).isBlank())
+        		if(toGive.size()==2)
+        			throw new IndexOutOfBoundsException("ATTENZIONE ! DEVI SPLITTARE IL TOKEN");
+        		 else if(toGive.get(2).isBlank())
+        		      throw new FileException("ATTENZIONE ! DEVI INSERIRE IL TOKEN NELLA SECONDA E TERZA RIGA");
         	  
         	      String verify = toGive.get(1) + toGive.get(2); // lo user token sarà sulla prima e seconda riga
               	  if(!verify.matches("^(?=.*[a-zA-Z])(?=.*[0-9])[A-Za-z0-9]+$")) 

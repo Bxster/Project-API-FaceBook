@@ -20,6 +20,12 @@ import univpm.social.service.ServiceImpl;
 import univpm.social.statistics.Statistic;
 import univpm.social.utility.FileExtern;
 
+/*
+    esempio differenza tra param e value
+    param -> year
+    value -> 2021
+ */
+
 
 
 public class Controller {
@@ -70,6 +76,17 @@ public class Controller {
 	}
 	
 	
+	
+	/*
+	     Questa rotta consente di filtrare per anno , anno-mese , anno-mese-giorno
+	     gli albums di un utente di Facebook. Ora vediamo le eccezioni/errori
+	     che si potrebbero generare:
+	     
+	     1) Se il parametro(anno o mese o giorno) è sbagliato o manca, verrà 
+	        lanciato il messaggio di errore  400 , vedere msg400
+	        
+	     2) 
+ 	 */
 	
 
 	
