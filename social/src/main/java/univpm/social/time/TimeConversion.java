@@ -1,6 +1,7 @@
 package univpm.social.time;
 
 import java.text.ParseException;
+import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -41,6 +42,21 @@ public class TimeConversion {
 
 		   return date; 
 	}   
+	
+	
+	
+	
+	  /*
+	     Questo metodo booleano ritorna true se e solo se la data è ammisibile,
+	     false in ogni altro caso
+	   */
+	
+	  public static boolean isLegalDate(String s)
+	    {
+			 SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
+			 dateFormat.setLenient(false);
+			 return dateFormat.parse(s, new ParsePosition(0)) != null;
+		 }
 	
 
 }
