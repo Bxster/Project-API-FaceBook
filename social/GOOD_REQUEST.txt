@@ -1,4 +1,3 @@
 albums
-birthday
 age_range
 hometown
