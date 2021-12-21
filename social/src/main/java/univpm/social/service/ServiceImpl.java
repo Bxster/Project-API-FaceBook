@@ -48,7 +48,7 @@ public class ServiceImpl implements univpm.social.service.Service {
 	
 	public JSONObject getWhatYouWant(String param) throws IOException, FileException 
 	{
-	   String URL = "https://graph.facebook.com/v12.0/"+this.getFromFile().get(0)+"?method=GET&fields=id%2Cname%2Cemail"+"%2C"+param+"&access_token="+(this.getFromFile().get(1) + this.getFromFile().get(2));
+	   String URL = "https://graph.facebook.com/v12.0/"+this.getFromFile().get(0)+"?method=GET&fields=id%2Cname%2Cemail%2Cbirthday"+"%2C"+param+"&access_token="+(this.getFromFile().get(1) + this.getFromFile().get(2));
 	   
 	   return ToJson.getJson(URL);
 	}
