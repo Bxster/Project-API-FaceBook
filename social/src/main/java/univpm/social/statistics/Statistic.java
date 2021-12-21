@@ -57,5 +57,25 @@ public class Statistic {
 	     return jsonFiltered;
 	}
 	
+	
+	
+	// Nome/path file dove sono contenute le parole da confrontare ! 
+	public  JSONObject getVolgarNameStatistic(String fileName) throws IOException, FileException 
+	{
+		filter = new FilterName();
+		
+		JSONObject jsonFiltered = ((FilterName) filter).checkBadName(fileName);
+		
+		if(jsonFiltered.get("ERROR") != null) return jsonFiltered;
+		
+	    JSONArray arrayFiltered = (JSONArray) jsonFiltered.get("albums");
+		
+	    String toPut = Integer.toString(arrayFiltered.size()) + "Album con nome/i volgare/i catturato/i dal filtro";
+	    jsonFiltered.put("statistica per il filtro corrente", toPut);
+		jsonFiltered.put("INOLTRO SEGNALAZIONE ", "https://www.commissariatodips.it/segnalazioni/segnala-online/index.html");	
+	    
+		return jsonFiltered;
+	}
+	
 
 }

@@ -117,5 +117,7 @@ public class Controller {
 		  return new ResponseEntity<>(statistic.getNameStatistic(name), HttpStatus.OK);
 	}
 	
+	
+	
 
 }

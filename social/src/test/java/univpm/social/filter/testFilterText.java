@@ -26,12 +26,18 @@ class testFilterText {
 	
 	
 	@Test
-	void test() throws IOException, FileException {
+	void testNoAlbumFound() throws IOException, FileException {
         
 		FilterName filter = new FilterName();
 		JSONObject jsonobject = new JSONObject();
 		jsonobject.put("ERROR", "NESSUN ALBUM TROVATO CON IL NOME pasquale");
 		Assertions.assertEquals(jsonobject,filter.filterForName("pasquale"));
 	}
-
+	
+	
+	
+	/*
+	@Test
+	void testNoVolgarNameFound
+*/
 }
