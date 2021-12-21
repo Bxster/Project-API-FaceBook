@@ -71,7 +71,7 @@ public class Controller {
 				 return new ResponseEntity<>(service.getWhatYouWant(param) , HttpStatus.OK);
 		   }
 		
-		throw new BadParameterException("ATTENZIONE VALUE IMMESSO NON VALIDO !");
+		throw new BadParameterException("ATTENZIONE VALORE PARAMETRO IMMESSO NON VALIDO !");
 	}
 	
 	
