@@ -36,7 +36,10 @@ class testTime {
 	
 	
 	/*
-	     
+	     In questo caso testo il corretto funzionamento del metodo 
+	     .fromStringToStandardDate() della classe TimeConversion ricordando che
+	     ovviamente nel programma controllo sempre la correttezza del valore
+	     anno , mese e giorno.
 	 */
 	
 	@Test
