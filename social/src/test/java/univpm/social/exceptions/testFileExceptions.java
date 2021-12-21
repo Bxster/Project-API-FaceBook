@@ -73,6 +73,11 @@ class testFileExceptions {
 	}
 	
 	
+	/*
+	        Questo test serve per verificare il corretto funzionamento del eccezione 
+	        che viene lanciata nel caso in cui lo user token inserito non è corretto,
+	        ovvero non sia una stringa alfanumerica. 
+	 */
 	
 	@Test
 	void testUncorrectUserTokenException() throws IOException {
