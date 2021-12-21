@@ -35,7 +35,10 @@ class testFilterText {
 	}
 	
 	
-	
+	 /*
+	     Testo il caso in cui nessun albums del utente sia presente nel file per la 
+	     ricerca di nomi pericolosi e/o volgari
+	 */
 	
 	@Test
 	void testNoVolgarNameFound() throws IOException, FileException 
