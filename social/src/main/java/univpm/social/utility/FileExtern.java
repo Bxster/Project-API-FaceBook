@@ -22,11 +22,11 @@ public class FileExtern {
 
 	/*
 	   Questa funzione ritorna il contenuto di un file , in questo caso i parametri
-	   sono due. Il primo , ovvero path , identifica il percorso del file mentre, 
+	   sono due. Il primo , ovvero path , identifica il percorso del file  
 	   che coinciderà con il nome del file per come è stato posizionato il file 
 	   mentre il secondo è un valore booleano. Se il valore booleano è settato
 	   su true , esegue un controllo per verificare se la seconda riga è alfanumerica
-	   oppure no ed altri controlli, se false lancia un eccezione.
+	   oppure no ed altri controlli; se false lancia un eccezione.
 	   Questo è utile perchè mi consente di generalizzare il mio metodo ovvero di 
 	   utilizzarlo sia per la lettura del WRITE_ME.txt che per la lettura
 	   del file GOOD_REQUEST.txt
