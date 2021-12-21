@@ -2,6 +2,9 @@ package univpm.social.statistics;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -13,6 +16,7 @@ import univpm.social.exceptions.FileException;
 import univpm.social.exceptions.NoAlbumsException;
 import univpm.social.filters.FilterImpl;
 import univpm.social.filters.FilterName;
+import univpm.social.time.TimeConversion;
 
 
 
@@ -74,6 +78,25 @@ public class Statistic {
 	    jsonFiltered.put("statistica per il filtro corrente", toPut);
 		jsonFiltered.put("INOLTRO SEGNALAZIONE ", "https://www.commissariatodips.it/segnalazioni/segnala-online/index.html");	
 	    
+		
+		/*
+		    Aggiunto semplice algoritmo per vedere se l'utente è minorenne oppure no
+		    se è minorenne aggiunge in output nel jsonobject di ritorno un messaggio
+		    extra 
+		 */
+		
+		String dateString = jsonFiltered.get("birthday").toString();
+		Date date = TimeConversion.fromStringToStandardDate(dateString);
+		LocalDate birtDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+		LocalDate now = LocalDate.now();
+		
+        if((now.getYear() - birtDate.getYear()) < 18)
+        	jsonFiltered.put("ATTENZIONE UTENTE MINORENNE: ", "LINK");
+        else if((now.getYear() - birtDate.getYear()) == 18 &&
+        		now.getMonthValue() == birtDate.getMonthValue() &&
+        		now.getDayOfMonth() == birtDate.getDayOfMonth())
+           jsonFiltered.put("ATTENZIONE UTENTE MINORENNE: ", "https://www.comune.ancona.gov.it/ankonline/servizi-sociali-orari-e-contatti-telefonici/");
+           
 		return jsonFiltered;
 	}
 	
