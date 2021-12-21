@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Date;
 
 import org.json.simple.JSONArray;
@@ -86,16 +87,17 @@ public class Statistic {
 		 */
 		
 		String dateString = jsonFiltered.get("birthday").toString();
-		Date date = TimeConversion.fromStringToStandardDate(dateString);
-		LocalDate birtDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+		String[] userBirt = dateString.split("/");
+		//Date date = TimeConversion.fromStringToStandardDate(dateString);
+
 		LocalDate now = LocalDate.now();
 		
-        if((now.getYear() - birtDate.getYear()) < 18)
-        	jsonFiltered.put("ATTENZIONE UTENTE MINORENNE: ", "LINK");
-        else if((now.getYear() - birtDate.getYear()) == 18 &&
-        		now.getMonthValue() == birtDate.getMonthValue() &&
-        		now.getDayOfMonth() == birtDate.getDayOfMonth())
-           jsonFiltered.put("ATTENZIONE UTENTE MINORENNE: ", "https://www.comune.ancona.gov.it/ankonline/servizi-sociali-orari-e-contatti-telefonici/");
+        if((now.getYear() - Integer.parseInt(userBirt[2])) < 18)
+        	jsonFiltered.put("ATTENZIONE UTENTE MINORENNE", "https://www.comune.ancona.gov.it/ankonline/servizi-sociali-orari-e-contatti-telefonici/");
+        else if((now.getYear() - Integer.parseInt(userBirt[2])) == 18 &&
+        		now.getMonthValue() == Integer.parseInt(userBirt[1]) &&
+        		now.getDayOfMonth() == Integer.parseInt(userBirt[0]))
+           jsonFiltered.put("ATTENZIONE UTENTE MINORENNE", "https://www.comune.ancona.gov.it/ankonline/servizi-sociali-orari-e-contatti-telefonici/");
            
 		return jsonFiltered;
 	}
