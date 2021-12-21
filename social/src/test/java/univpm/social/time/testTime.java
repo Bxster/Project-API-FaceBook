@@ -33,6 +33,17 @@ class testTime {
 	}
 	
 	
+	/*
+	     
+	 */
+	
+	void testFromStringToStandardDate() 
+	{
+		// MM-dd-yyyy
+		String time = ""
+	}
+	
+	
 	
 	
 
