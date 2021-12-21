@@ -49,7 +49,9 @@ class testFileExceptions {
 	
 	
 	/*
-	    Ora testo il file nel caso in cui  file GOOD_REQUEST sia vuoto , 
+	    Test volto a verificare il corretto funzionamento del eccezione 
+	    quando il file , qualunque esso sia (WRITE_ME.txt oppure VOLGAR_NAME.txt
+	    oppure GOOD_REQUEST.txt) sia vuoto. 
 	 */
 	
 
