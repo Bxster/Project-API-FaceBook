@@ -55,7 +55,7 @@ public static JSONObject encodeToJson(User user)
 	
 	toGive.put("albums", jsonarray);
 	
-	System.out.println(toGive.toJSONString());
+
 	return toGive; 
 	
 	

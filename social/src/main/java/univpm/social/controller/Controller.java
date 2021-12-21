@@ -34,7 +34,7 @@ public class Controller {
 	private FilterImpl filter = new FilterImpl();
 	private Statistic statistic = new Statistic();
 	private String msg = "ERRORE ! VALORE PARAMETRO/I MANCANTE/I";
-    private String msg400 = "ERRORE ! VALUE IMMESSO NON CORRETTO O MANCANTE";
+    private String msgNew = "ERRORE ! VALUE IMMESSO NON CORRETTO O MANCANTE";
    
     
     /*
@@ -57,7 +57,7 @@ public class Controller {
 		
 		
 		if(param == null)
-			return ResponseEntity.status(400).body(msg400 + " : Prestare attenzione");
+			return ResponseEntity.status(400).body(msgNew + " : Prestare attenzione");
 		
 		
 		ArrayList<String> list = FileExtern.readFromFile("GOOD_REQUEST.txt", false);
@@ -95,7 +95,7 @@ public class Controller {
           
 
 		  if(year==null || day==null || month==null)
-			  return ResponseEntity.status(400).body(msg400 + " : Prestare attenzione");
+			  return ResponseEntity.status(400).body(msgNew + " : Prestare attenzione");
 
 		  if((year.isEmpty())) 
 			return ResponseEntity.status(400).body(msg);
@@ -110,7 +110,7 @@ public class Controller {
 		//throw new BadParameterException("ATTENZIONE , DEVI PASSARMI UN NOME DA FILTRARE");
 		
 		if(name == null)
-			return ResponseEntity.status(400).body(msg400);
+			return ResponseEntity.status(400).body(msgNew);
 		
 		if(name.isEmpty())   return ResponseEntity.status(400).body(msg);
 		

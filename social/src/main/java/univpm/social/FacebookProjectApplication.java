@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 import univpm.social.portscanning.PortScanning;
 
-// netstat -a -n -o | find "8080"
+
 
 @SpringBootApplication
 @ComponentScan({"univpm.social.service","univpm.social.controller","univpm.social.exceptions"})
