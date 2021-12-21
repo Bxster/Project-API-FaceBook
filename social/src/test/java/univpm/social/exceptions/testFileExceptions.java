@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+
 import univpm.social.utility.FileExtern;
 
 
@@ -69,6 +70,28 @@ class testFileExceptions {
 		});
 		
 		Assertions.assertEquals("ATTENZIONE IL FILE "+path+" E' VUOTO !", thrown.getMessage());
+	}
+	
+	
+	
+	@Test
+	void testUncorrectUserTokenException() throws IOException {
+		
+		FileWriter file = new FileWriter("src\\test\\java\\com\\example\\demo\\WRITE_ME_TEST.txt");
+		PrintWriter printFile = new PrintWriter(file);
+		
+		printFile.println("0123456789");
+		printFile.println("abcdefghijk");
+		printFile.println("zZv");
+		printFile.close();
+		
+		FileException thrown = Assertions.assertThrows(FileException.class, () -> {
+			FileExtern.readFromFile("src\\test\\java\\com\\example\\demo\\WRITE_ME_TEST.txt",true);
+		});
+		
+		Assertions.assertEquals("ATTENTO , PROBABILMENTE NON HAI INSERITO CORRETAMENTE LO USER TOKEN", thrown.getMessage());
+		
+             
 	}
 	
 
