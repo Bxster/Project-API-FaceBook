@@ -21,6 +21,7 @@ public static JSONObject encodeToJson(User user)
 	String userName = user.getName();
 	String userId = user.getId();
 	String userEmail = user.getEmail();
+	String userBirthday = user.getCreatedTime();
 	ArrayList<Albums> album = user.getAlbums();
 	
 //  Ho copiato lo username , l'id e l'email nel jsonobject , ora tocca agli album
@@ -28,7 +29,8 @@ public static JSONObject encodeToJson(User user)
 	toGive.put("name", userName);
 	toGive.put("id",userId);
 	toGive.put("email", userEmail);
-
+    toGive.put("birthday", userBirthday);
+	
 	JSONArray jsonarray = new JSONArray(); 
     
 	//JSONObject temp =  new JSONObject();
@@ -47,7 +49,7 @@ public static JSONObject encodeToJson(User user)
 	}
 
 	// STAMPE DI PROVA :
-	for(int i=0 ; i<jsonarray.size();i++) System.out.println((JSONObject)jsonarray.get(i));
+	for(int i=0 ; i<jsonarray.size();i++) 
 		
 	// System.out.println(toGive.put("albums", jsonarray);
 	
