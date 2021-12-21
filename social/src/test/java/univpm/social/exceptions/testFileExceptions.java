@@ -44,5 +44,32 @@ class testFileExceptions {
 		Assertions.assertEquals("SBAGLIATO ! DEVI INSERIRE IL TOKEN NELLA SECONDA E TERZA RIGA", thrown.getMessage());
 	}
 	
+	
+	
+	
+	/*
+	    Ora testo il file nel caso in cui non si il file GOOD_REQUEST e sia vuoto , 
+	    tanto lo stesso discorso vale per il resto del file VOLGAR_NAME.txt;
+	 */
+	
+
+	
+	@Test
+	void testEmptyFileException() throws NullPointerException, IOException 
+	{
+		FileWriter file = new FileWriter("src\\test\\java\\com\\example\\demo\\VOLGAR_NAME_TEST.txt");
+		PrintWriter printFile = new PrintWriter(file);
+		
+		printFile.print("");
+		printFile.close();
+		
+		String path = "src\\test\\java\\com\\example\\demo\\VOLGAR_NAME_TEST.txt";
+		NullPointerException thrown = Assertions.assertThrows(NullPointerException.class, () -> {
+			FileExtern.readFromFile(path,false);
+		});
+		
+		Assertions.assertEquals("ATTENZIONE IL FILE "+path+" E' VUOTO !", thrown.getMessage());
+	}
+	
 
 }
