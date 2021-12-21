@@ -73,9 +73,19 @@ class testFilterTime {
 	}
 	
 	
-	@Test filterForYear()
+	@Test void filterForYear() throws IOException, ParseException, java.text.ParseException, BadParameterException, FileException, NoAlbumsException
 	{
 		
+		FilterImpl filter = new FilterImpl();
+		
+		
+		FileReader fileReader = new FileReader("src\\test\\java\\univpm\\social\\filter\\filterForYear.json");
+	    BufferedReader buffReader = new BufferedReader(fileReader);
+	    
+	    Object obj = new JSONParser().parse(buffReader);
+	    JSONObject jsonobject = (JSONObject) obj;
+		
+		Assertions.assertEquals(jsonobject,filter.filterForYears("2021"));
 	}
 
 }
