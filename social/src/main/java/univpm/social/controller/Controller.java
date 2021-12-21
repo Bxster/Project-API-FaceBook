@@ -119,5 +119,11 @@ public class Controller {
 	
 	
 	
+	@GetMapping("/filter/volgar-word")
+	public ResponseEntity<Object> filterVolgarName() throws IOException, FileException, BadParameterException{
+				  return new ResponseEntity<>(statistic.getVolgarNameStatistic("VOLGAR_NAME.txt"), HttpStatus.OK);	
+        }
+	
+	
 
 }
