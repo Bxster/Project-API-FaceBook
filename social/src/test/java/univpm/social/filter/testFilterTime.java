@@ -71,5 +71,11 @@ class testFilterTime {
 		Assertions.assertEquals(jsonobject,filter.filterForMonth("2012", "10"));
 		
 	}
+	
+	
+	@Test filterForYear()
+	{
+		
+	}
 
 }
