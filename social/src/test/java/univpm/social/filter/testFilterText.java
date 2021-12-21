@@ -36,8 +36,14 @@ class testFilterText {
 	
 	
 	
-	/*
+	
 	@Test
-	void testNoVolgarNameFound
-*/
+	void testNoVolgarNameFound() throws IOException, FileException 
+	{
+		FilterName filter = new FilterName();
+		JSONObject jsonobject = new JSONObject();
+		jsonobject.put("ERROR", "NESSUN ALBUM PRESENTA NOMI VOLGARI E/O MOLESTI !");
+		Assertions.assertEquals(jsonobject,filter.checkBadName("src\\test\\java\\univpm\\social\\filter\\VOLGAR_NAME_TEST_FILTER.txt"));
+	}
+
 }
