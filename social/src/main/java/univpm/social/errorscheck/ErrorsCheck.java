@@ -6,10 +6,31 @@ import java.time.LocalDate;
 import univpm.social.exceptions.BadParameterException;
 import univpm.social.time.TimeConversion;
 
+
+/**
+ * 
+ * @author Baldelli Gianluca
+ * @author Bellante Luca
+ * 
+ * Questa classe gestisce gli errori per la data inserita nel filtro
+ * e per l'anno minimo di ricerca
+ */
+
 public class ErrorsCheck {
 	
 	
 	private final static  String commonMessage = "VERIFICA LA PRESENZA DI ALTRI ERRORI NEL CODICE ";
+	
+	/**
+	 * Questo metodo controlla i valori inseriti nei campi anno, mese e giorno 
+	 * per la rotta filter
+	 * 
+	 * @param day per controllare il giorno
+	 * @param month per controllare il mese
+	 * @param year per controllare l'anno
+	 * @return true se i valori inseriti sono accettabili, sennò darà un errore a schermo
+	 * @throws BadParameterException nel caso in cui i valori siano inaccettabili
+	 */
 	
 	private static boolean isNumber(String day , String month , String year) throws BadParameterException 
 	{
@@ -17,7 +38,7 @@ public class ErrorsCheck {
 	try {	
 		  if(Integer.parseInt(year) < Integer.MAX_VALUE &&
 		     Integer.parseInt(month) < Integer.MAX_VALUE &&
-		     Integer.parseInt(year) < Integer.MAX_VALUE )
+		     Integer.parseInt(day) < Integer.MAX_VALUE )
 			  return true;
 	    }    
 		catch(NumberFormatException e) 
@@ -26,6 +47,14 @@ public class ErrorsCheck {
 	    }
 	return false;
 	}
+	
+	/**
+	 * Questa classe controlla il valore dell'anno inserito
+	 * 
+	 * @param number per controllare l'anno
+	 * @return true se il valore inserito è accettabile, sennò darà un errore a schermo
+	 * @throws BadParameterException nel caso in cui il valore inserito è inaccettabile
+	 */
 	
 	
 	private static boolean correctYear(String number) throws BadParameterException 
@@ -40,7 +69,13 @@ public class ErrorsCheck {
                                
 	}
 	
-	
+	/**
+	 * Questa classe controlla il valore del mese inserito
+	 * 
+	 * @param number per controllare il mese
+	 * @return true se il valore inserito è accettabile, sennò darà un errore a schermo
+	 * @throws BadParameterException nel caso in cui il valore inserito è inaccettabile
+	 */
 	
 	private static boolean correctMonth(String number) throws BadParameterException 
 	{		
@@ -53,7 +88,15 @@ public class ErrorsCheck {
                                              
 	}
 	
-	
+	/**
+	 * Questa classe controlla il valore del giorno inserito
+	 * 
+	 * @param day per il valore del giorno
+	 * @param year per il valore dell'anno
+	 * @param month per il valore del mese
+	 * @return true se i valori sono accettabili e la data è reale
+	 * @throws BadParameterException se il giorno inserito non è valido
+	 */
 	
 	
 	private static boolean correctDay(String day , String year , String month) throws BadParameterException 
@@ -78,6 +121,16 @@ public class ErrorsCheck {
 	}
 	
 	
+	/**
+	 * Questa classe controlla che i valori inseriti non siano
+	 * uguali allo 0
+	 * 
+	 * @param day per il valore del giorno
+	 * @param year per il valore dell'anno
+	 * @param month per il valore del mese
+	 * @return true se i valori inseriti sono accettabili
+	 * @throws BadParameterException se almeno uno dei parametri passati è uguale a 0 
+	 */
 	
 	private static boolean allZero(String day , String year , String month) throws BadParameterException 
 	  {
@@ -87,7 +140,16 @@ public class ErrorsCheck {
 		 else return true;
 	  }
 	
-	
+	/**
+	 * Questa classe unisce tutti i vari check precedenti per fare 
+	 * un controllo generale ai valori inseriti
+	 * 
+	 * @param day per il valore del giorno
+	 * @param month per il valore del mese
+	 * @param year per il valore dell'anno
+	 * @return true se i valori inseriti sono accettabili
+	 * @throws BadParameterException se qualche  valore inserito è inaccettabile
+	 */
 	
 	public  boolean errorsCheck(String day , String month , String year) throws BadParameterException 
 	  {

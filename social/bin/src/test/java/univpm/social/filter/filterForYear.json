@@ -1,0 +1,33 @@
+{
+    "birthday": "01/01/2005",
+    "albums": [
+        {
+            "created_time": "2021-12-21T17:09:54+0000",
+            "name": "Prova2",
+            "id": "112719501267046"
+        },
+        {
+            "created_time": "2021-12-20T15:54:18+0000",
+            "name": "Prova",
+            "id": "112294051309591"
+        },
+        {
+            "created_time": "2021-12-09T21:19:23+0000",
+            "name": "Immagini del profilo",
+            "id": "103848132154183"
+        },
+        {
+            "created_time": "2021-12-20T15:52:16+0000",
+            "name": "Cavolo",
+            "id": "112292081309788"
+        },
+        {
+            "created_time": "2021-12-09T21:18:16+0000",
+            "name": "Immagini di copertina",
+            "id": "103847998820863"
+        }
+    ],
+    "name": "Gianluca Luca",
+    "id": "103848425487487",
+    "email": "s1098762@studenti.univpm.it"
+}

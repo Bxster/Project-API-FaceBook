@@ -8,6 +8,15 @@ import org.springframework.context.annotation.ComponentScan;
 
 import univpm.social.portscanning.PortScanning;
 
+/**
+ * 
+ * @author Baldelli Gianluca
+ * @author Bellante Luca
+ *
+ * Richiama il metodo statico della classe Final PortScanning
+ * successivamente prende la porta libera e 
+ * avvia l'applicazionespringboot.
+ */
 
 
 @SpringBootApplication
@@ -16,12 +25,6 @@ public class FacebookProjectApplication {
 
 	public static void main(String[] args) {
 		
-		
-		/*
-		    Richiama il metodo statico della classe Final PortScanning
-		    successivamente prende la porta libera e avvia l'applicazione
-		    springboot.
-    	*/
 		
 		String port = Integer.toString(PortScanning.getPort().getLocalPort());
 		
