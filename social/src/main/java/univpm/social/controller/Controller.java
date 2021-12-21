@@ -25,6 +25,15 @@ import univpm.social.utility.FileExtern;
     value -> 2021
  */
 
+/**
+ * 
+ * @author Baldelli Gianluca
+ * @author Bellante Luca
+ * 
+ * Questa classe gestisce tutte le varie rotte disponibili
+ * 
+ */
+
 
 @RestController
 public class Controller {
@@ -38,8 +47,6 @@ public class Controller {
    
     
     /*
-        Questa rotta consente di di avere generiche info quali: nome,id,email con
-        la possibilità di scegliere un parametro extra da visualizzare(es. birthday)
         
         1) Se il parametro è sbagliato o manca, verrà lanciato il messaggio di errore 
            400 , vedere msg400
@@ -52,6 +59,18 @@ public class Controller {
         
      */
         
+    /**
+     * 
+     * Questa rotta di tipo GET consente di avere generiche info quali: nome,id,email con
+     * la possibilità di scegliere un parametro extra da visualizzare(es. age_range)
+     * 
+     * @param param tramite questo parametro si può inserire un parametro a scelta
+     * @return un JSONObject con le varie informazioni dell'utente
+     * @throws IOException se non viene passato nessun parametro
+     * @throws FileException se viene inserito il parametro ma senza nulla dentro
+     * @throws BadParameterException se ciò che viene inserito nel parametro non è accettabile
+     */
+    
 	@GetMapping(value = "/userInfo")
 	public ResponseEntity<Object> getInfo(@RequestParam(value="param" , required=false)String param) throws IOException, FileException, BadParameterException{
 		
@@ -87,6 +106,21 @@ public class Controller {
 	     2) 
  	 */
 	
+	/**
+	 * Questa rotta di tipo GET consente di filtrare per anno , anno-mese , 
+	 * anno-mese-giorno gli albums di un utente di Facebook 
+	 * 
+	 * @param year per inserire l'anno su cui fare statistiche
+	 * @param month per inserire il mese su cuiu fare statistiche
+	 * @param day per inserire il giorno su cui fare statistiche
+	 * @return un JSONObject con le info primarie dell'utente e quelle degli album trovati nel lasso di tempo inserito
+	 * @throws ParseException
+	 * @throws BadParameterException
+	 * @throws IOException
+	 * @throws FileException
+	 * @throws MissingServletRequestParameterException
+	 * @throws NoAlbumsException
+	 */
 
 	
 	@GetMapping("/filter")
@@ -103,6 +137,17 @@ public class Controller {
 		  return new ResponseEntity<>(statistic.getStatistics(year ,month , day),HttpStatus.OK);
 	}
 	
+	/**
+	 * Questa rotta di tipo GET consente di filtrare in base al loro 
+	 * nome gli albums di un utente di Facebook
+	 * 
+	 * @param name per inserire il nome dell'album da cercare
+	 * @return un JSONObject con le informazioni primarie dell'utente e quelle degli album trovati con il nome inserito
+	 * @throws IOException se non viene passato nessun parametro
+	 * @throws FileException se viene inserito il parametro senza nessun valore
+	 * @throws BadParameterException se il valore inserito nel parametro è inaccettabile
+	 * @throws NoAlbumsException
+	 */
 	
 	
 	@GetMapping("/filter/name")
@@ -118,6 +163,17 @@ public class Controller {
 	}
 	
 	
+	/**
+	 * Questa rotta di tipo GET consente di filtrare , in base a dei nomi
+	 * non accettabili scritti nel file VOLGAR_NAME.txt gli albums
+	 * di un utente di Facebook
+	 * 
+	 * @return un JSONObject con le informazioni primarie dell'utente e quelle degli album trovati che si chiamano con un nome non accettabile
+	 * @throws IOException
+	 * @throws FileException
+	 * @throws BadParameterException
+	 * @throws NoAlbumsException
+	 */
 	
 	@GetMapping("/filter/volgar-word")
 	public ResponseEntity<Object> filterVolgarName() throws IOException, FileException, BadParameterException, NoAlbumsException{
