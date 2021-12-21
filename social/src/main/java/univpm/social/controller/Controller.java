@@ -63,7 +63,7 @@ public class Controller {
 		ArrayList<String> list = FileExtern.readFromFile("GOOD_REQUEST.txt", false);
 		
 		if(param.isEmpty())
-			return ResponseEntity.status(409).body(msg);
+			return ResponseEntity.status(400).body(msg);
 		
 		for(String word : list) 
 		   {
@@ -98,7 +98,7 @@ public class Controller {
 			  return ResponseEntity.status(400).body(msg400 + " : Prestare attenzione");
 
 		  if((year.isEmpty())) 
-			return ResponseEntity.status(409).body(msg);
+			return ResponseEntity.status(400).body(msg);
 		
 		  return new ResponseEntity<>(statistic.getStatistics(year ,month , day),HttpStatus.OK);
 	}
@@ -106,13 +106,13 @@ public class Controller {
 	
 	
 	@GetMapping("/filter/name")
-	public ResponseEntity<Object> filterName(@RequestParam(value="name", required=false) String name) throws IOException, FileException, BadParameterException{
+	public ResponseEntity<Object> filterName(@RequestParam(value="name", required=false) String name) throws IOException, FileException, BadParameterException, NoAlbumsException{
 		//throw new BadParameterException("ATTENZIONE , DEVI PASSARMI UN NOME DA FILTRARE");
 		
 		if(name == null)
 			return ResponseEntity.status(400).body(msg400);
 		
-		if(name.isEmpty())   return ResponseEntity.status(409).body(msg);
+		if(name.isEmpty())   return ResponseEntity.status(400).body(msg);
 		
 		  return new ResponseEntity<>(statistic.getNameStatistic(name), HttpStatus.OK);
 	}
@@ -120,7 +120,7 @@ public class Controller {
 	
 	
 	@GetMapping("/filter/volgar-word")
-	public ResponseEntity<Object> filterVolgarName() throws IOException, FileException, BadParameterException{
+	public ResponseEntity<Object> filterVolgarName() throws IOException, FileException, BadParameterException, NoAlbumsException{
 				  return new ResponseEntity<>(statistic.getVolgarNameStatistic("VOLGAR_NAME.txt"), HttpStatus.OK);	
         }
 	

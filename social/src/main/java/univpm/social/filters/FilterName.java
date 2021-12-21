@@ -8,6 +8,7 @@ import org.json.simple.JSONObject;
 
 
 import univpm.social.exceptions.FileException;
+import univpm.social.exceptions.NoAlbumsException;
 import univpm.social.model.Albums;
 import univpm.social.model.User;
 import univpm.social.utility.DecEnc;
@@ -29,10 +30,10 @@ public class FilterName extends FilterImpl{
 	
 	
 	
-	public JSONObject filterForName(String name) throws IOException, FileException 
+	public JSONObject filterForName(String name) throws IOException, FileException, NoAlbumsException 
 	{
 		User user = DecEnc.decodeToUser();
-		
+		if(user.getAlbums().isEmpty()) throw new NoAlbumsException("NON E' PRESENTE ALCUN ALBUM");
 		boolean check = false;
 		
 	   ArrayList<Albums> albums = new ArrayList();
@@ -66,11 +67,11 @@ public class FilterName extends FilterImpl{
 	
 	*/
 	
-	public JSONObject checkBadName(String fileName) throws IOException, FileException 
+	public JSONObject checkBadName(String fileName) throws IOException, FileException, NoAlbumsException 
 	{
 		ArrayList<String> volgarNameList = FileExtern.readFromFile(fileName, false);
 		User user = DecEnc.decodeToUser();
-          
+		if(user.getAlbums().isEmpty()) throw new NoAlbumsException("NON E' PRESENTE ALCUN ALBUM");  
 	    ArrayList<Albums> albums = user.getAlbums();
 	    
 	    boolean check = false;

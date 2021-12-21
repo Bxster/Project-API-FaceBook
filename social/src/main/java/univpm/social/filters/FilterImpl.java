@@ -22,7 +22,7 @@ import univpm.social.utility.DecEnc;
 public class FilterImpl implements Filter {
 
 	
-	// TODO LUCA : MIGLIORARE QUESTO ASPETTO 
+	
 	protected JSONObject getJsonObject(boolean check , User user, ArrayList<Albums> albums, String error) 
 	{
 		User toGet;

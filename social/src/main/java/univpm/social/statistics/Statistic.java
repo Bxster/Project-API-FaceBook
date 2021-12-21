@@ -38,14 +38,14 @@ public class Statistic {
 		
 	    JSONArray arrayFiltered = (JSONArray) objFiltered.get("albums");
 	
-	    String toPut = Integer.toString(arrayFiltered.size()) + "Album catturato/i dal filtro";
+	    String toPut = Integer.toString(arrayFiltered.size()) + " Album catturato/i dal filtro";
 	    objFiltered.put("statistica per il filtro corrente", toPut);
 			
 	     return objFiltered;
 	}
 	
 	
-	public  JSONObject getNameStatistic(String name) throws IOException, FileException 
+	public  JSONObject getNameStatistic(String name) throws IOException, FileException, NoAlbumsException 
 	{
 		
 		filter = new FilterName();
@@ -56,7 +56,7 @@ public class Statistic {
 		
 	    JSONArray arrayFiltered = (JSONArray) jsonFiltered.get("albums");
 		
-	    String toPut = Integer.toString(arrayFiltered.size()) + "Album catturato/i dal filtro name: " + name;
+	    String toPut = Integer.toString(arrayFiltered.size()) + " Album catturato/i dal filtro name: " + name;
 	    jsonFiltered.put("statistica per il filtro corrente", toPut);
 			
 	     return jsonFiltered;
@@ -65,7 +65,7 @@ public class Statistic {
 	
 	
 	// Nome/path file dove sono contenute le parole da confrontare ! 
-	public  JSONObject getVolgarNameStatistic(String fileName) throws IOException, FileException 
+	public  JSONObject getVolgarNameStatistic(String fileName) throws IOException, FileException, NoAlbumsException 
 	{
 		filter = new FilterName();
 		
@@ -75,7 +75,7 @@ public class Statistic {
 		
 	    JSONArray arrayFiltered = (JSONArray) jsonFiltered.get("albums");
 		
-	    String toPut = Integer.toString(arrayFiltered.size()) + "Album con nome/i volgare/i catturato/i dal filtro";
+	    String toPut = Integer.toString(arrayFiltered.size()) + " Album con nome/i volgare/i catturato/i dal filtro";
 	    jsonFiltered.put("statistica per il filtro corrente", toPut);
 		jsonFiltered.put("INOLTRO SEGNALAZIONE ", "https://www.commissariatodips.it/segnalazioni/segnala-online/index.html");	
 	    

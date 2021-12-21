@@ -26,7 +26,7 @@ class testFilterText {
 	
 	
 	@Test
-	void testNoAlbumFound() throws IOException, FileException {
+	void testNoAlbumFound() throws IOException, FileException, NoAlbumsException {
         
 		FilterName filter = new FilterName();
 		JSONObject jsonobject = new JSONObject();
@@ -41,7 +41,7 @@ class testFilterText {
 	 */
 	
 	@Test
-	void testNoVolgarNameFound() throws IOException, FileException 
+	void testNoVolgarNameFound() throws IOException, FileException, NoAlbumsException 
 	{
 		FilterName filter = new FilterName();
 		JSONObject jsonobject = new JSONObject();
