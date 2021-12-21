@@ -24,7 +24,7 @@ class testFileExceptions {
 	     NEL .ReadFromFile(... , true)
 	 */
 	
-	// TODO LUCA : RIVEDERE QUESTA PARTE 
+
 	@Test
 	void  testUncorrectLine() throws IOException 
 	{
@@ -49,8 +49,7 @@ class testFileExceptions {
 	
 	
 	/*
-	    Ora testo il file nel caso in cui non si il file GOOD_REQUEST e sia vuoto , 
-	    tanto lo stesso discorso vale per il resto del file VOLGAR_NAME.txt;
+	    Ora testo il file nel caso in cui  file GOOD_REQUEST sia vuoto , 
 	 */
 	
 
