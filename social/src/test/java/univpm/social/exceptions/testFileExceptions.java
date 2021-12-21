@@ -58,7 +58,7 @@ class testFileExceptions {
 	@Test
 	void testEmptyFileException() throws NullPointerException, IOException 
 	{
-		FileWriter file = new FileWriter("src\\test\\java\\com\\example\\demo\\VOLGAR_NAME_TEST.txt");
+		FileWriter file = new FileWriter("src\\test\\java\\univpm\\social\\exceptions\\VOLGAR_NAME_TEST.txt");
 		PrintWriter printFile = new PrintWriter(file);
 		
 		printFile.print("");
