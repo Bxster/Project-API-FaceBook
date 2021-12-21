@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 class testPortScanning {
 
 	 /*
-	     Test sul funzionamento del metodo statico della classe PortScanning
+	     Test sul funzionamento del metodo statico della classe PortScanning.
 	     Occupo cento porte e poi vedo se il mio algoritmo funziona 
 	 */
 	
@@ -32,10 +32,6 @@ class testPortScanning {
 		   numberPort++;
 	     }
 	}
-	@AfterEach
-	void tearDown() throws Exception {
-	}
-
 
 
 	@Test
