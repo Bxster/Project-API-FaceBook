@@ -28,7 +28,7 @@ class testFileExceptions {
 	@Test
 	void  testUncorrectLine() throws IOException 
 	{
-		FileWriter file = new FileWriter("src\\test\\java\\com\\example\\demo\\WRITE_ME_TEST.txt");
+		FileWriter file = new FileWriter("src\\test\\java\\univpm\\social\\exceptions\\WRITE_ME_TEST.txt");
 		PrintWriter printFile = new PrintWriter(file);
 		
 		printFile.println("01246789");
@@ -37,7 +37,7 @@ class testFileExceptions {
 		printFile.println("dfanfkak456");
 		printFile.close();
 		
-		String path = "src\\test\\java\\com\\example\\demo\\WRITE_ME_TEST.txt";
+		String path = "src\\test\\java\\univpm\\social\\exceptions\\WRITE_ME_TEST.txt";
 		FileException thrown = Assertions.assertThrows(FileException.class, () -> {
 			FileExtern.readFromFile(path,true);
 		});
