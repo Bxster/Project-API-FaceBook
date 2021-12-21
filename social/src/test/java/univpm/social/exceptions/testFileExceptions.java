@@ -64,7 +64,7 @@ class testFileExceptions {
 		printFile.print("");
 		printFile.close();
 		
-		String path = "src\\test\\java\\com\\example\\demo\\VOLGAR_NAME_TEST.txt";
+		String path = "src\\test\\java\\univpm\\social\\exceptions\\VOLGAR_NAME_TEST.txt";
 		NullPointerException thrown = Assertions.assertThrows(NullPointerException.class, () -> {
 			FileExtern.readFromFile(path,false);
 		});
@@ -82,7 +82,7 @@ class testFileExceptions {
 	@Test
 	void testUncorrectUserTokenException() throws IOException {
 		
-		FileWriter file = new FileWriter("src\\test\\java\\com\\example\\demo\\WRITE_ME_TEST.txt");
+		FileWriter file = new FileWriter("src\\test\\java\\univpm\\social\\exceptions\\WRITE_ME_TEST.txt");
 		PrintWriter printFile = new PrintWriter(file);
 		
 		printFile.println("0123456789");
@@ -91,7 +91,7 @@ class testFileExceptions {
 		printFile.close();
 		
 		FileException thrown = Assertions.assertThrows(FileException.class, () -> {
-			FileExtern.readFromFile("src\\test\\java\\com\\example\\demo\\WRITE_ME_TEST.txt",true);
+			FileExtern.readFromFile("src\\test\\java\\univpm\\social\\exceptions\\WRITE_ME_TEST.txt",true);
 		});
 		
 		Assertions.assertEquals("ATTENTO , PROBABILMENTE NON HAI INSERITO CORRETAMENTE LO USER TOKEN", thrown.getMessage());
