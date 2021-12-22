@@ -146,7 +146,7 @@ public class Controller {
 	 * @throws IOException se non viene passato nessun parametro
 	 * @throws FileException se viene inserito il parametro senza nessun valore
 	 * @throws BadParameterException se il valore inserito nel parametro è inaccettabile
-	 * @throws NoAlbumsException
+	 * @throws NoAlbumsException se non ci sono albums presenti
 	 */
 	
 	
@@ -172,7 +172,7 @@ public class Controller {
 	 * @throws IOException
 	 * @throws FileException
 	 * @throws BadParameterException
-	 * @throws NoAlbumsException
+	 * @throws NoAlbumsException se non ci sono albmus presenti
 	 */
 	
 	@GetMapping("/filter/volgar-word")

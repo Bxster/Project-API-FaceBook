@@ -14,21 +14,30 @@ import univpm.social.model.User;
 import univpm.social.utility.DecEnc;
 import univpm.social.utility.FileExtern;
 
+/**
+ * Questa classe implementa il filtro per il nome
+ * degli albums dell'utente
+ * 
+ * @author Baldelli Gianluca
+ * @author Bellante Luca
+ *
+ */
 
 
 public class FilterName extends FilterImpl{
 	
 	
-	/*
-    Gli passo un parametro, un nome e lui controlla se è presente
-    qualche album con quel nome , se non è presente non lancia un eccezione 
-    ma bensì ritorna un jsobject con un messaggio di avvertimento,
-    il ritorno di questo metodo è una chiamata ad un altro metodo(protected) eridato
-    da FilterImpl , esso consente di ritornare il jsonobject filtrato oppure il jsonobject
-    con il messaggio di avvertimento
-    */
 	
-	
+	/**
+	 * Questo metodo filtra, tramite il nome inserito, gli albums di un
+	 * utente
+	 * 
+	 * @param name per contenere il nome dell'albums da filtrare
+	 * @return un metodo che è una chiamata ad un altro metodo ereditato da FilterImpl, che consente di ritornare il jsonobject filtrato/il jsonobject con il messaggio di avvertimento
+	 * @throws IOException se non viene passato nessun parametro
+	 * @throws FileException se viene inserito il parametro ma senza nulla dentro
+	 * @throws NoAlbumsException se non ci sono albums presenti
+	 */
 	
 	public JSONObject filterForName(String name) throws IOException, FileException, NoAlbumsException 
 	{
@@ -66,6 +75,18 @@ public class FilterName extends FilterImpl{
 	     FilterImpl
 	
 	*/
+	
+	/**
+	 * Questo metodo serve per fare il check per la quarta rotta, cioè
+	 * capire se c'èe qualche albums con un nome vietato; se non vengon trovati albums con
+	 * quel nome, verrà mostrato un errore
+	 * 
+	 * @param fileName 
+	 * @return Jsonobject che corrispende al o agli albums trovati che corrispondono con i nomi degli albums presenti nel file VOLGAR_NAME.txt
+	 * @throws IOException se non viene passato nessun parametro
+	 * @throws FileException se viene inserito il parametro ma senza nulla dentro
+	 * @throws NoAlbumsException se non ci sono albums presenti
+	 */
 	
 	public JSONObject checkBadName(String fileName) throws IOException, FileException, NoAlbumsException 
 	{

@@ -19,10 +19,27 @@ import univpm.social.model.*;
 import univpm.social.time.TimeConversion;
 import univpm.social.utility.DecEnc;
 
+
+/**
+ * Questa classe implementa i metodi dell'interfaccia Filter
+ * per fare le statistiche sugli album negli anni, mesi e giorni
+ * 
+ * @author Baldelli Gianluca
+ * @author Bellante Luca
+ *
+ */
+
 public class FilterImpl implements Filter {
 
-	
-	
+    /**
+	 * Questo metodo serve per prende ilJSONObejct contente le informazioni
+	 * 
+	 * @param check variabile booleana per poi fare il controllo nell'if
+	 * @param user che contiene l'utente
+	 * @param albums array che contiene gli albums
+	 * @param error stringa di errore
+	 * @return se true il JSONObecjt a schermo, se false l'errore
+     */
 	protected JSONObject getJsonObject(boolean check , User user, ArrayList<Albums> albums, String error) 
 	{
 		User toGet;
@@ -50,8 +67,14 @@ public class FilterImpl implements Filter {
 	}
 	
 	
-	
-	
+	/**
+	 * Questo metodo implementa il filtro per l'anno
+	 * 
+	 * @param year serve per contenere l'anno inserito
+	 * @throws IOException se non viene passato nessun parametro
+     * @throws FileException se viene inserito il parametro ma senza nulla dentro
+	 * @throws NoAlbumsException se non ci sono albums presenti
+	 */
 	public JSONObject filterForYears(String year) throws IOException, FileException, NoAlbumsException 
 	{
 		// PRIMA MI PRENDO IL MIO JSON OBJECT FACENDO UNA CHIAMATA AL API DI FB
@@ -86,7 +109,16 @@ public class FilterImpl implements Filter {
 	}
 	
 	
-	
+	/**
+	 * Questo metodo implementa il filtro per l'anno e il mese
+	 * 
+	 * @param year serve per contenere l'anno inserito
+	 * @param month serve per contenere il mese inserito
+	 * @throws ParseException 
+	 * @throws IOException se non viene passato nessun parametro
+     * @throws FileException se viene inserito il parametro ma senza nulla dentro
+	 * @throws NoAlbumsException se non ci sono albums presenti 
+	 */
 	// yyyy-mm
 	public JSONObject filterForMonth(String year , String month) throws ParseException, IOException, FileException, NoAlbumsException 
 	  {
@@ -123,7 +155,18 @@ public class FilterImpl implements Filter {
                          "NESSUN ALBUM PRESENTE NEL ANNO E MESE RICHIESTO");			
 		}
 	
-	
+	/**
+	 * Questo metodo implementa il filtro per l'anno, il mese
+	 * e il giorno
+	 * 
+	 * @param year serve per contenere l'anno inserito
+	 * @param month serve per contenere il mese inserito
+	 * @param day serve per contenere il giorno inserito
+	 * @throws ParseException 
+	 * @throws IOException se non viene passato nessun parametro
+     * @throws FileException se viene inserito il parametro ma senza nulla dentro
+	 * @throws NoAlbumsException se non ci sono albums presenti 
+	 */
 	public JSONObject filterForDay(String year , String month , String day) throws ParseException, IOException, FileException, NoAlbumsException 
 	{
 		
@@ -165,7 +208,19 @@ public class FilterImpl implements Filter {
 		     		
 	}
 	
-	
+	/**
+	 * Questo metodo gestisce i vari filtri e tramite degli
+	 * if a cascata fa controlli
+	 * 
+	 * @param year serve per contenere l'anno inserito
+	 * @param month serve contenere il mese inserito
+	 * @param day serve per contenere il giorno inserito
+	 * @throws ParseException 
+	 * @throws BadParameterException nel caso in cui i valori siano inaccettabili
+	 * @throws IOException se non viene passato nessun parametro
+     * @throws FileException se viene inserito il parametro ma senza nulla dentro
+	 * @throws NoAlbumsException se non ci sono albums presenti 
+	 */
 	public JSONObject filter(String year , String month , String day) throws ParseException, BadParameterException, IOException, FileException, NoAlbumsException 
 	{
 		ErrorsCheck errorsCheck = new ErrorsCheck();

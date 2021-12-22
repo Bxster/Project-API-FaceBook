@@ -9,9 +9,23 @@ import univpm.social.exceptions.BadParameterException;
 import univpm.social.exceptions.FileException;
 import univpm.social.exceptions.NoAlbumsException;
 
+/**
+ * Questa interfaccia permette di controllare i vari filtri per
+ * anno, mese e giorno per fare le statistiche
+ * 
+ * @author Baldelli Gianluca
+ * @author Bellante Luca
+ *
+ */
 
 public interface Filter {
    
+	/**
+	 * 
+	 * 
+	 * 
+	 */
+	
 	public JSONObject filterForYears(String year) throws IOException, FileException, NoAlbumsException;
 	public JSONObject filterForMonth(String year , String month) throws ParseException, IOException, FileException, NoAlbumsException;
 	public JSONObject filterForDay(String year , String Month ,String day) throws ParseException, IOException, FileException, NoAlbumsException;
