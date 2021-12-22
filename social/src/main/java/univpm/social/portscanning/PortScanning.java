@@ -3,16 +3,27 @@ package univpm.social.portscanning;
 import java.io.IOException;
 import java.net.ServerSocket;
 
+/**
+ * Questa final class serve per aprire le porte
+ * per il funzionamento del programma tramite Tomcat 
+ * 
+ * @author Baldelli Gianluca
+ * @author Bellante Luca
+ *
+ */
+
 public final class PortScanning {
 	
-	/*
-	    Questo metodo statico della classe final ritorna un oggetto
-	    ServerSocket oppure null. Il funzionamento è semplice , tenta di
-	    generare/aprire porte a partire dalla 8080 , se ci riesce ritorna 
-	    il serversocket altrimenti cattura un eccezione e continua con la prossima
-	    porta, fino a trovare una porta libera.
-	*/
 	
+	
+	/**
+	 * Questo metodo statico della classe final tenta di 
+	 * generare/aprire porte a partire dalla 8080, se ci riesce ritorna 
+	 * il serversocket altrimenti cattura un eccezione e continua
+	 * con la prossima porta, fino a trovare una porta libera
+	 * 
+	 * @return un oggetto ServerSocket oppure null
+	 */
 	
     public static ServerSocket getPort() 
     {

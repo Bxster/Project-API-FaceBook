@@ -7,6 +7,14 @@ import org.json.JSONArray;
 import org.json.simple.JSONObject;
 import univpm.social.exceptions.FileException;
 
+/**
+ * Questa interfaccia dichiara i metodi da usare per
+ * implementare i service
+ * 
+ * @author Baldelli Gianluca
+ * @author Bellante Luca
+ *
+ */
 
 public interface Service {
 	
