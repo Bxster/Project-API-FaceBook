@@ -13,8 +13,23 @@ import univpm.social.model.User;
 import univpm.social.service.ServiceImpl;
 
 
+/**
+ * Questa classe serve per copiare i vari attributi in un JSONObject
+ * 
+ * @author Baldelli Gianluca
+ * @author Bellante Luca
+ *
+ */
+
 public class DecEnc {
 	
+/**
+ * Questo metodo copia gli attributi dello user e degli albums
+ * in un JSONObejct
+ * 	
+ * @param user
+ * @return il JSONObject
+ */
 	
 public static JSONObject encodeToJson(User user) 
 {
@@ -61,6 +76,15 @@ public static JSONObject encodeToJson(User user)
 	
    }
 
+   
+   /**
+    * Questo metodo prepara il JSONObejct contenente tutte le
+    * informazioni riguardo l'utente come nome, id, ecc
+    * 
+    * @return user
+    * @throws IOException
+    * @throws FileException
+    */
 
    public static User decodeToUser() throws IOException, FileException 
      {

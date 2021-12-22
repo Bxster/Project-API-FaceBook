@@ -14,7 +14,15 @@ import java.util.Scanner;
 
 import univpm.social.exceptions.FileException;
 
-
+/**
+ * Questa classe si occupa della lettura del file di testo
+ * WRITE_ME.txt per il giusto inserimento dell'id e
+ * dell'access token per avviare il programma
+ * 
+ * @author Baldelli Gianluca
+ * @author Bellante Luca
+ *
+ */
 
 public class FileExtern {
 	
@@ -30,6 +38,16 @@ public class FileExtern {
 	   Questo è utile perchè mi consente di generalizzare il mio metodo ovvero di 
 	   utilizzarlo sia per la lettura del WRITE_ME.txt che per la lettura
 	   del file GOOD_REQUEST.txt
+	 */
+	
+	/**
+	 * Questo metodo ritorna il contenuto di un file 
+	 * 
+	 * @param path identifica il percorso del file che coinciderà con il nome del file per come è stato posizionato il file
+	 * @param check valore booleano
+	 * @return se check è true , esegue un controllo per verificare se la seconda riga è alfanumerica e altri controlli; se false lancia un eccezione
+	 * @throws FileException se ciò che è stato inserito nel file di testo è incorretto
+	 * @throws IOException se il nome del file di testo è errato
 	 */
 	
 	public static ArrayList<String> readFromFile(String path , boolean check) throws FileException, IOException 

@@ -10,8 +10,24 @@ import java.net.URLConnection;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
+/**
+ * Questa classe trasforma i vari dati e stringe in file JSON
+ * 
+ * @author Baldelli Gianluca
+ * @author Bellante Luca
+ *
+ */
+
 public final class ToJson {
 	
+	
+	/**
+	 * Questo metodo codifica l'url per connettersi all'API e lo
+	 * trasforma in un JSONObject
+	 * 
+	 * @param url per contenere l'url della chiamata
+	 * @return dati 
+	 */
 	
 	public static JSONObject getJson(String url) 
 	{
