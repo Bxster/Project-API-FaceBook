@@ -19,12 +19,34 @@ import univpm.social.filters.FilterImpl;
 import univpm.social.filters.FilterName;
 import univpm.social.time.TimeConversion;
 
-
+/**
+ * Questa classe permette di fare le dovute statistiche
+ * sugli albums dell'utente in base alla rotta che viene
+ * scelta, quindi in base al tempo, al nome o per i nomi volgari
+ * 
+ * @author Baldelli Gianluca
+ * @author Bellante Luca
+ *
+ */
 
 public class Statistic {
 	
 	private FilterImpl filter ;
 
+	/**
+	 * Questo metodo fa le statistiche sugli albums
+	 * dell'utente in base al tempo indicato nella chiamata
+	 * 
+	 * @param year per contenere l'anno inserito
+	 * @param month per contenere il mese inserito
+	 * @param day per contenere il giorno inserito
+	 * @return l'oggetto filtrato in base al tempo
+	 * @throws ParseException
+	 * @throws BadParameterException se il valore inserito nel parametro è inaccettabile
+	 * @throws IOException se non viene passato nessun parametro
+	 * @throws FileException se viene inserito il parametro senza nessun valore
+	 * @throws NoAlbumsException se non ci sono albums presenti
+	 */
 	
 	public  JSONObject getStatistics(String year , String month , String day) throws ParseException, BadParameterException, IOException, FileException, NoAlbumsException 
 	{
@@ -44,6 +66,16 @@ public class Statistic {
 	     return objFiltered;
 	}
 	
+	/**
+	 * Questo metodo fa le statistiche sugli albums
+	 * dell'utente in base al nome indicato nella chiamata
+	 * 
+	 * @param name per contenere il nome dell'album
+	 * @return l'oggetto filtrato in base al nome
+	 * @throws IOException se non viene passato nessun parametro
+	 * @throws FileException se viene inserito il parametro senza nessun valore
+	 * @throws NoAlbumsException se non ci sono albums presenti
+	 */
 	
 	public  JSONObject getNameStatistic(String name) throws IOException, FileException, NoAlbumsException 
 	{
@@ -65,6 +97,20 @@ public class Statistic {
 	
 	
 	// Nome/path file dove sono contenute le parole da confrontare ! 
+	
+	/**
+	 * Questo metodo fa le statistiche sugli albums
+	 * dell'utente in base ai nomi vietati per gli albums 
+	 * indicati nel file di testo VOLGAR_NAME.txt; inoltre vengono
+	 * segnalati a schermo dei link
+	 * 
+	 * @param fileName per contenere il nome del file da leggere
+	 * @return l'oggetto filtrato in base ai nomi vietati
+	 * @throws IOException
+	 * @throws FileException
+	 * @throws NoAlbumsException se non ci sono albums presenti
+	 */
+	
 	public  JSONObject getVolgarNameStatistic(String fileName) throws IOException, FileException, NoAlbumsException 
 	{
 		filter = new FilterName();
