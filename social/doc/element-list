@@ -1,1 +1,12 @@
+univpm.social
+univpm.social.controller
+univpm.social.errorscheck
+univpm.social.exceptions
+univpm.social.filter
+univpm.social.filters
+univpm.social.model
+univpm.social.portscanning
+univpm.social.service
+univpm.social.statistics
+univpm.social.time
 univpm.social.utility
