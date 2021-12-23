@@ -124,12 +124,7 @@ public class Controller {
 	
 	@GetMapping("/filter")
 	public ResponseEntity<Object> filter(@RequestParam(value="year",required=false) String year,
-<<<<<<< HEAD
-			@RequestParam(value="month" , defaultValue="0" , required=false) String month , @RequestParam(value="day", defaultValue="0", required=false) String day) throws ParseException, BadParameterException, IOException, FileException,  NoAlbumsException{
-=======
-			@RequestParam(value="month" , defaultValue="0" , required=false) String month , @RequestParam(value="day", defaultValue="0", required=false) String day) throws ParseException, BadParameterException, IOException, FileException, NoAlbumsException{
->>>>>>> refs/remotes/origin/main
-          
+          			@RequestParam(value="month" , defaultValue="0" , required=false) String month , @RequestParam(value="day", defaultValue="0", required=false) String day) throws ParseException, BadParameterException, IOException, FileException,  NoAlbumsException{
 
 		  if(year==null || day==null || month==null)
 			  return ResponseEntity.status(400).body(msgNew + " : Prestare attenzione");
