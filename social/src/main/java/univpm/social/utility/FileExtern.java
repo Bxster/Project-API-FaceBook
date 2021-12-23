@@ -79,7 +79,7 @@ public class FileExtern {
 
             if(toGive.size()==1)
           	  throw new FileException("ATTENZIONE ! TUTTE LE INFO SONO SU UN UNICA RIGA");
-      	  // >=2
+      	  
       	  if(toGive.size()>2)
       	    {   
       	      if(toGive.get(2).isBlank() || toGive.get(1).isBlank())
