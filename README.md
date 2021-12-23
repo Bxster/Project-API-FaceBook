@@ -1,4 +1,10 @@
+<div align="center">
+
+![WhatsApp Image 2021-12-23 at 15 34 39-2](https://user-images.githubusercontent.com/92955826/147258306-3877f2b7-88c4-4a77-8c1e-5d16e4513a52.jpeg)
+
 # Progetto-Programmazione-Ad-Oggetti 
+  
+</div>
 
 ### Descrizione in italiano :it:
 
@@ -145,20 +151,39 @@ Questa eccezione personalizzata viene lanciata se e solo sè:
 
 >Ecco di seguito i test che vengono eseguiti su questo programma e visionabili [qui](https://github.com/lucabellantee/Progetto-programmazione-a-oggetti/tree/main/social/src/test/java/univpm/social)
 
+### Classe testBadParameterException
+
 ![Schermata 2021-12-21 alle 21 32 36](https://user-images.githubusercontent.com/92955826/146995213-afce6d8f-cf73-4d34-905a-9b0cdf2d8433.jpg)
 ![Schermata 2021-12-21 alle 21 32 58](https://user-images.githubusercontent.com/92955826/146995219-4a79f8eb-0842-4226-a653-62efebcdeb83.jpg)
 ![Schermata 2021-12-21 alle 21 33 08](https://user-images.githubusercontent.com/92955826/146995220-83b442ea-a81f-457f-a60b-b3484e2d4b1e.jpg)
 ![Schermata 2021-12-21 alle 21 33 17](https://user-images.githubusercontent.com/92955826/146995222-0bd707fe-9a6c-4856-92bf-bb2fcb806761.jpg)
 ![Schermata 2021-12-21 alle 21 33 23](https://user-images.githubusercontent.com/92955826/146995224-943a5140-8871-43b3-a6a8-6502797255d9.jpg)
+
+### Classe testFileExceptions
+
 ![Schermata 2021-12-21 alle 21 39 23](https://user-images.githubusercontent.com/92955826/146995225-889f58e5-10fd-4082-bd48-31348bd70fd0.jpg)
 ![Schermata 2021-12-21 alle 21 39 30](https://user-images.githubusercontent.com/92955826/146995227-4ad12bed-edeb-4eb2-bce3-c42cac660069.jpg)
 ![Schermata 2021-12-21 alle 21 39 38](https://user-images.githubusercontent.com/92955826/146995233-f92bcb79-70ab-4b58-ba96-dadec3d313ec.jpg)
+![Schermata 2021-12-23 alle 14 56 35 copia](https://user-images.githubusercontent.com/92955826/147257590-4b119bf8-aa00-4194-bf3d-bd38a623e75f.jpg)
+![Schermata 2021-12-23 alle 14 56 26 copia](https://user-images.githubusercontent.com/92955826/147257593-ea2e9687-37e2-4dbe-a6a8-8c60b1d326d7.jpg)
+
+### Classe testFilterText
+
 ![Schermata 2021-12-21 alle 21 39 50](https://user-images.githubusercontent.com/92955826/146995235-783f10bf-7a57-4f40-90dc-dcf9e73750fe.jpg)
 ![Schermata 2021-12-21 alle 21 39 56](https://user-images.githubusercontent.com/92955826/146995236-0efab4d9-65f9-4fa2-8b59-a797027dc5a8.jpg)
+
+### Classe testFilterTime
+
 ![Schermata 2021-12-21 alle 21 41 30](https://user-images.githubusercontent.com/92955826/146995238-2e23d931-af73-4d38-9bae-2261f866f584.jpg)
 ![Schermata 2021-12-21 alle 21 41 36](https://user-images.githubusercontent.com/92955826/146995239-277d60b7-b7d2-4b98-b910-6a58aef2c653.jpg)
 ![Schermata 2021-12-21 alle 21 41 42](https://user-images.githubusercontent.com/92955826/146995240-5fc5588d-a96e-4198-89f0-beaae7df139a.jpg)
+
+### Classe testPortScanning
+
 ![Schermata 2021-12-21 alle 21 42 18](https://user-images.githubusercontent.com/92955826/146995242-9395afb0-0c8c-4941-97a1-00e331561e3a.jpg)
+
+### Classe testTime
+
 ![Schermata 2021-12-21 alle 21 42 29](https://user-images.githubusercontent.com/92955826/146995243-2f5a1a76-6d60-4a77-b100-48c76cc18d34.jpg)
 ![Schermata 2021-12-21 alle 21 42 41](https://user-images.githubusercontent.com/92955826/146995245-c5164d79-f03f-4d7e-962b-40d12fcd3c45.jpg)
 
