@@ -32,6 +32,7 @@ public class FacebookProjectApplication {
 	        app.setDefaultProperties(Collections
 	          .singletonMap("server.port", port));
 	        app.run(args);
+	        
 	}
 
 }
