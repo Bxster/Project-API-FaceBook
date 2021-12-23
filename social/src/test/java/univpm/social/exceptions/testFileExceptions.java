@@ -125,5 +125,29 @@ class testFileExceptions {
 		
              
 	}
+	
 
+	
+	/*
+	      Questo test serve a verificare il corretto funzionamento del eccezione 
+	      FileExcpetion e del controllo nella classe FileExtern in seguito ad un
+	      WRITE_ME.txt con tutte le info posizionate sulla prima riga.    
+	 */
+	
+	
+	@Test
+	void testOneLineInfo() throws IOException {
+		
+		FileWriter file = new FileWriter("src\\test\\java\\univpm\\social\\exceptions\\WRITE_ME_TEST.txt");
+		PrintWriter printFile = new PrintWriter(file);
+		
+		printFile.print("0123456789ankadbkabff89325859");
+		printFile.close();
+		
+		FileException thrown = Assertions.assertThrows(FileException.class, () -> {
+			FileExtern.readFromFile("src\\test\\java\\univpm\\social\\exceptions\\WRITE_ME_TEST.txt",true);
+		});
+		
+		Assertions.assertEquals("ATTENZIONE ! TUTTE LE INFO SONO SU UN UNICA RIGA", thrown.getMessage());
+	}
 }
