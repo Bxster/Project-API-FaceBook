@@ -80,12 +80,12 @@ public class FileExtern {
 
             if(toGive.size()==1)
           	  throw new FileException("ATTENZIONE ! TUTTE LE INFO SONO SU UN UNICA RIGA");
-      	  
-      	  if(toGive.size()>=2)
+      	  // >=2
+      	  if(toGive.size()>=3)
       		      if(toGive.get(2).isBlank() || toGive.get(1).isBlank())
       		          throw new FileException("SBAGLIATO ! DEVI INSERIRE IL TOKEN NELLA SECONDA E TERZA RIGA");
-      		 else if(toGive.size()<2)
-      			     throw new FileException("ATTENZIONE ! INSERISCI LO USER TOKEN SPLITTATO NELLA SECONDA E TERZA RIGA");
+      		 else if(toGive.size()==2)
+      			     throw new FileException("ATTENZIONE ! SPLITTA LO USER TOKEN NELLA SECONDA E TERZA RIGA");
       	      
       		
       		String verify = toGive.get(1) + toGive.get(2); // lo user token sarà sulla prima e seconda riga
