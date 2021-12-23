@@ -42,7 +42,7 @@ class testFileExceptions {
 			FileExtern.readFromFile(path,true);
 		});
 		
-		Assertions.assertEquals("SBAGLIATO ! DEVI INSERIRE IL TOKEN NELLA SECONDA E TERZA RIGA", thrown.getMessage());
+		Assertions.assertEquals("SBAGLIATO ! DEVI INSERIRE IL TOKEN SPLITTATO NELLA SECONDA E TERZA RIGA", thrown.getMessage());
 	}
 	
 	
@@ -100,5 +100,30 @@ class testFileExceptions {
              
 	}
 	
+	
+	/*
+	     Questo test serve a verificare se viene lanciata correttamente l'eccezione 
+	     quando inserisco lo userToken nella prima riga e l' accessToken nella seconda ma senza 
+	     splittarlo tra seconda e terza riga.
+	 */
+	
+	@Test
+	void testUncorrectSplitUserTokenException() throws IOException {
+		
+		FileWriter file = new FileWriter("src\\test\\java\\univpm\\social\\exceptions\\WRITE_ME_TEST.txt");
+		PrintWriter printFile = new PrintWriter(file);
+		
+		printFile.println("0123456789");
+		printFile.print("abcdefghijk44645");
+		printFile.close();
+		
+		FileException thrown = Assertions.assertThrows(FileException.class, () -> {
+			FileExtern.readFromFile("src\\test\\java\\univpm\\social\\exceptions\\WRITE_ME_TEST.txt",true);
+		});
+		
+		Assertions.assertEquals("ATTENZIONE ! SPLITTA LO USER TOKEN NELLA SECONDA E TERZA RIGA", thrown.getMessage());
+		
+             
+	}
 
 }
