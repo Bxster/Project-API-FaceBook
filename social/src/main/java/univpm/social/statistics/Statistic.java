@@ -41,7 +41,7 @@ public class Statistic {
 	 * @param month per contenere il mese inserito
 	 * @param day per contenere il giorno inserito
 	 * @return l'oggetto filtrato in base al tempo
-	 * @throws ParseException
+	 * @throws ParseException se il formato della data è sbagliato
 	 * @throws BadParameterException se il valore inserito nel parametro è inaccettabile
 	 * @throws IOException se non viene passato nessun parametro
 	 * @throws FileException se viene inserito il parametro senza nessun valore
@@ -106,8 +106,8 @@ public class Statistic {
 	 * 
 	 * @param fileName per contenere il nome del file da leggere
 	 * @return l'oggetto filtrato in base ai nomi vietati
-	 * @throws IOException
-	 * @throws FileException
+	 * @throws IOException se il file non esiste
+	 * @throws FileException se il file è corrotto
 	 * @throws NoAlbumsException se non ci sono albums presenti
 	 */
 	

@@ -81,7 +81,7 @@ public class FilterName extends FilterImpl{
 	 * capire se c'èe qualche albums con un nome vietato; se non vengon trovati albums con
 	 * quel nome, verrà mostrato un errore
 	 * 
-	 * @param fileName 
+	 * @param fileName nome del file da leggere
 	 * @return Jsonobject che corrispende al o agli albums trovati che corrispondono con i nomi degli albums presenti nel file VOLGAR_NAME.txt
 	 * @throws IOException se non viene passato nessun parametro
 	 * @throws FileException se viene inserito il parametro ma senza nulla dentro

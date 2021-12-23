@@ -45,7 +45,7 @@ public class FileExtern {
 	 * 
 	 * @param path identifica il percorso del file che coinciderà con il nome del file per come è stato posizionato il file
 	 * @param check valore booleano
-	 * @return se check è true , esegue un controllo per verificare se la seconda riga è alfanumerica e altri controlli; se false lancia un eccezione
+	 * @return se check è true, esegue un controllo per verificare se la seconda riga è alfanumerica e altri controlli; se false lancia un eccezione
 	 * @throws FileException se ciò che è stato inserito nel file di testo è incorretto
 	 * @throws IOException se il nome del file di testo è errato
 	 */

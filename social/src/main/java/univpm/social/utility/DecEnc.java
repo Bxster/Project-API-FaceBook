@@ -82,8 +82,8 @@ public static JSONObject encodeToJson(User user)
     * informazioni riguardo l'utente come nome, id, ecc
     * 
     * @return user
-    * @throws IOException
-    * @throws FileException
+    * @throws IOException se il file WRITE_ME.txt non esiste
+    * @throws FileException se il file WRITE_ME.txt è corrotto
     */
 
    public static User decodeToUser() throws IOException, FileException 
