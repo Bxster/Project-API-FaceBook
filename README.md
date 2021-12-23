@@ -28,6 +28,10 @@ To start the application you need to insert your Id and Access Token in the text
                    
 :white_check_mark: Autoconfigurazione della porta del Server Tomcat per l'avvio di SpringBoot
 
+:white_check_mark: Se, utilizzando un Browser Web, viene digitato male l'url o la chiamata di una rotta verrà visualizzata questa pagina di errore
+
+![WhatsApp Image 2021-12-23 at 17 23 21](https://user-images.githubusercontent.com/92955826/147267373-ae865e87-e388-4864-854b-687b0c7eafd0.jpeg)
+
 # Contenuti 📂
 
 - [Configurazione](#configurazione-key)
@@ -189,7 +193,12 @@ Questa eccezione personalizzata viene lanciata se e solo sè:
 
 # Struttura del Progetto :office:
 
-screenshot della struttura
+![Schermata 2021-12-23 alle 17 12 17](https://user-images.githubusercontent.com/92955826/147266698-e0491747-4e44-405b-b559-e3686bacae10.jpg)
+
+![Schermata 2021-12-23 alle 17 12 48](https://user-images.githubusercontent.com/92955826/147266701-db53765f-2507-4961-849f-e15c74b7aa50.jpg)
+
+![Schermata 2021-12-23 alle 17 13 13](https://user-images.githubusercontent.com/92955826/147266702-dad7eeb5-e9d5-49d4-889c-8f993f4ce02a.jpg)
+
 
 # Documentazione 📰
 
