@@ -114,7 +114,7 @@ public class FilterImpl implements Filter {
 	 * 
 	 * @param year serve per contenere l'anno inserito
 	 * @param month serve per contenere il mese inserito
-	 * @throws ParseException 
+	 * @throws ParseException se viene inserita la data in modo incorretto
 	 * @throws IOException se non viene passato nessun parametro
      * @throws FileException se viene inserito il parametro ma senza nulla dentro
 	 * @throws NoAlbumsException se non ci sono albums presenti 
@@ -162,7 +162,7 @@ public class FilterImpl implements Filter {
 	 * @param year serve per contenere l'anno inserito
 	 * @param month serve per contenere il mese inserito
 	 * @param day serve per contenere il giorno inserito
-	 * @throws ParseException 
+	 * @throws ParseException se viene inserita la data in modo incorretto
 	 * @throws IOException se non viene passato nessun parametro
      * @throws FileException se viene inserito il parametro ma senza nulla dentro
 	 * @throws NoAlbumsException se non ci sono albums presenti 
@@ -215,7 +215,7 @@ public class FilterImpl implements Filter {
 	 * @param year serve per contenere l'anno inserito
 	 * @param month serve contenere il mese inserito
 	 * @param day serve per contenere il giorno inserito
-	 * @throws ParseException 
+	 * @throws ParseException se viene inserita la data in modo incorretto
 	 * @throws BadParameterException nel caso in cui i valori siano inaccettabili
 	 * @throws IOException se non viene passato nessun parametro
      * @throws FileException se viene inserito il parametro ma senza nulla dentro

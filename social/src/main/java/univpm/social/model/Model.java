@@ -12,9 +12,24 @@ import java.util.Date;
 
 public interface Model {
 	
+	/**
+	 * Metodo che restituisce la data di creazione dell'oggetto
+     */
 	public String getCreatedTime();
+	/**
+     * Metodo che restituisce il nome dell'oggetto chiamando il metodo
+     * della superclasse
+     */
 	public String getName();
-	public Date toDate();  
+	/**
+	 * Metodo toDate che converte la stringa della data in un
+	 * elemento Iso
+	 */
+	public Date toDate();
+	/**
+     * Metodo che restituisce l'id dell'oggetto chiamando il metodo
+     * della superclasse
+     */
     public String getId();
 
 }

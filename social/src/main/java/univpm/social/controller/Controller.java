@@ -114,18 +114,21 @@ public class Controller {
 	 * @param month per inserire il mese su cuiu fare statistiche
 	 * @param day per inserire il giorno su cui fare statistiche
 	 * @return un JSONObject con le info primarie dell'utente e quelle degli album trovati nel lasso di tempo inserito
-	 * @throws ParseException
-	 * @throws BadParameterException
-	 * @throws IOException
-	 * @throws FileException
-	 * @throws MissingServletRequestParameterException
-	 * @throws NoAlbumsException
+	 * @throws ParseException per l'errore del metodo getStatistics
+	 * @throws BadParameterException se il valore inserito nel parametro è inaccettabile
+	 * @throws IOException se non viene passato nessun parametro
+	 * @throws FileException se viene inserito il parametro ma senza nulla dentro
+	 * @throws NoAlbumsException se non ci sono albums presenti
 	 */
 
 	
 	@GetMapping("/filter")
 	public ResponseEntity<Object> filter(@RequestParam(value="year",required=false) String year,
+<<<<<<< HEAD
 			@RequestParam(value="month" , defaultValue="0" , required=false) String month , @RequestParam(value="day", defaultValue="0", required=false) String day) throws ParseException, BadParameterException, IOException, FileException,  NoAlbumsException{
+=======
+			@RequestParam(value="month" , defaultValue="0" , required=false) String month , @RequestParam(value="day", defaultValue="0", required=false) String day) throws ParseException, BadParameterException, IOException, FileException, NoAlbumsException{
+>>>>>>> refs/remotes/origin/main
           
 
 		  if(year==null || day==null || month==null)
@@ -169,9 +172,8 @@ public class Controller {
 	 * di un utente di Facebook
 	 * 
 	 * @return un JSONObject con le informazioni primarie dell'utente e quelle degli album trovati che si chiamano con un nome non accettabile
-	 * @throws IOException
-	 * @throws FileException
-	 * @throws BadParameterException
+	 * @throws IOException se il file "WRITE_ME.txt" e/o "VOLGAR_NAME.txt" non esistono
+	 * @throws FileException se il file "WRITE_ME.txt" è corrotto
 	 * @throws NoAlbumsException se non ci sono albmus presenti
 	 */
 	

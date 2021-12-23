@@ -47,8 +47,8 @@ public class ServiceImpl implements univpm.social.service.Service {
 	 * l'id e l'access token dell'utente
 	 * 
 	 * @return la lettura del file di testo
-	 * @throws IOException
-	 * @throws FileException
+	 * @throws IOException se il file non esiste
+	 * @throws FileException se il file è corrotto
 	 */
 	
    	private  ArrayList<String> getFromFile() throws IOException, FileException 
@@ -61,8 +61,8 @@ public class ServiceImpl implements univpm.social.service.Service {
    	 * prepara l'url per chiamare l'API di Facebook 
    	 * 
    	 * @return JSONObject dell'url
-   	 * @throws IOException
-   	 * @throws FileException
+   	 * @throws IOException se il file non esiste
+   	 * @throws FileException se il file è corrotto
    	 * 
    	 */
    	
@@ -82,8 +82,8 @@ public class ServiceImpl implements univpm.social.service.Service {
 	 * 
 	 * @param param che contiene il parametro richiesto dall'utente
 	 * @return JSONObject dell'url
-	 * @throws IOException
-   	 * @throws FileException
+	 * @throws IOException se il file non esiste
+   	 * @throws FileException se il file è corrotto
    	 * 
 	 */
 	
