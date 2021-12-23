@@ -26,7 +26,7 @@ public interface Service {
 	/**
 	 * Questo metodo legge il parametro richiesto dall'utente e 
 	 * tramite l'url richiama l'API di Facebook per ottenere
-	 * quella specifica informazione dell'utente
+	 * quella specifica informazione dell'utente più altre di default
 	 */
 	public JSONObject getWhatYouWant(String param) throws IOException, FileException; 
    // public JSONObject filterForYears(String years);
