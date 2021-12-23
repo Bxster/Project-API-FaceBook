@@ -20,15 +20,24 @@ import univpm.social.exceptions.NoAlbumsException;
 
 public interface Filter {
    
-	/**
-	 * 
-	 * 
-	 * 
-	 */
 	
+	/**
+	 * Questo metodo implementa il filtro per l'anno
+	 */
 	public JSONObject filterForYears(String year) throws IOException, FileException, NoAlbumsException;
+	/**
+	 * Questo metodo implementa il filtro per l'anno e il mese
+	 */
 	public JSONObject filterForMonth(String year , String month) throws ParseException, IOException, FileException, NoAlbumsException;
+	/**
+	 * Questo metodo implementa il filtro per l'anno, il mese
+	 * e il giorno
+	 */
 	public JSONObject filterForDay(String year , String Month ,String day) throws ParseException, IOException, FileException, NoAlbumsException;
+	/**
+	 * Questo metodo gestisce i vari filtri e tramite degli
+	 * if a cascata fa controlli
+	 */
 	public JSONObject filter(String year , String Month ,String day) throws ParseException, BadParameterException, IOException, FileException, NoAlbumsException;
 
 }
