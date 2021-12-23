@@ -125,7 +125,7 @@ public class Controller {
 	
 	@GetMapping("/filter")
 	public ResponseEntity<Object> filter(@RequestParam(value="year",required=false) String year,
-			@RequestParam(value="month" , defaultValue="0" , required=false) String month , @RequestParam(value="day", defaultValue="0", required=false) String day) throws ParseException, BadParameterException, IOException, FileException, MissingServletRequestParameterException, NoAlbumsException{
+			@RequestParam(value="month" , defaultValue="0" , required=false) String month , @RequestParam(value="day", defaultValue="0", required=false) String day) throws ParseException, BadParameterException, IOException, FileException,  NoAlbumsException{
           
 
 		  if(year==null || day==null || month==null)
@@ -176,7 +176,7 @@ public class Controller {
 	 */
 	
 	@GetMapping("/filter/volgar-word")
-	public ResponseEntity<Object> filterVolgarName() throws IOException, FileException, BadParameterException, NoAlbumsException{
+	public ResponseEntity<Object> filterVolgarName() throws IOException, FileException, NoAlbumsException{
 				  return new ResponseEntity<>(statistic.getVolgarNameStatistic("VOLGAR_NAME.txt"), HttpStatus.OK);	
         }
 	
